@@ -1,0 +1,11 @@
+<div class="conatainer-fluid ml-4">
+    <h2>Question Form</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="question" class="control-label">Question</label>        
+        <textarea class="form-control" id="question" required [(ngModel)]="question.question" name="question" rows="4"></textarea>
+      </div>        
+      <button class="btn btn-primary" type="submit">Save</button>      
+    </form>
+    </div>
+    
