@@ -6,14 +6,17 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [  
+  { path: 'home', component: HomeComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'users', component: UserListComponent },
   { path: 'createUser', component: UserCreateComponent },
   { path: 'updateUser/:userId', component: UpdateUserComponent },
-  { path: 'addMultipleChoiceQuestion', component: MultipleChoiceQuestionComponent },
+  { path: 'addMultipleChoiceQuestion', component: MultipleChoiceQuestionComponent },  
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];
 
 @NgModule({

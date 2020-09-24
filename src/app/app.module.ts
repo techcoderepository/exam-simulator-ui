@@ -10,6 +10,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
     UpdateUserComponent,
     MultipleChoiceQuestionComponent,
     SigninComponent,
-    SignupComponent,       
+    SignupComponent,
+    HomeComponent,       
     ],
   imports: [
     BrowserModule,
