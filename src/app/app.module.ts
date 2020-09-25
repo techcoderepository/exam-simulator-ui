@@ -11,6 +11,7 @@ import { MultipleChoiceQuestionComponent } from './multiple-choice-question/mult
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     MultipleChoiceQuestionComponent,
     SigninComponent,
     SignupComponent,
-    HomeComponent,       
+    HomeComponent,    
+    ScheduledexamslistComponent,       
     ],
   imports: [
     BrowserModule,

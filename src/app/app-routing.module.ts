@@ -7,6 +7,7 @@ import { MultipleChoiceQuestionComponent } from './multiple-choice-question/mult
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
 
 const routes: Routes = [  
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'createUser', component: UserCreateComponent },
   { path: 'updateUser/:userId', component: UpdateUserComponent },
   { path: 'addMultipleChoiceQuestion', component: MultipleChoiceQuestionComponent },  
+  { path: 'scheduledexamslist', component: ScheduledexamslistComponent },  
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];
 
