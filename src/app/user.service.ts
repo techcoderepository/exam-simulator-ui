@@ -28,5 +28,10 @@ export class UserService {
   updateUser(userId: String, value: any): Observable<Object> {
     return this.http.put('http://localhost:8085/updateUser/'+userId, value);
   }
+  validateUser(emailId:String): Observable<Object> {
+    return this.http.get('http://localhost:8085/validateUser/'+emailId, { responseType: 'text' });
+  }
+
+  
  
 }

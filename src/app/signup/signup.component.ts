@@ -14,15 +14,16 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {    
-    console.log("hello"); 
-    this.userService.createUser(this.user).subscribe(data => {
-      console.log(data)
+  onSubmit() {        
+    this.userService.createUser(this.user).subscribe(data => {      
+      console.log(data);
       this.user = new Users();
-
-     // this.gotoList();
+      this.router.navigate(['/scheduledexamslist']);
     }, 
-    error => console.log(error));    
+    error => {
+      console.log(error);
+      this.router.navigate(['/signup']);
+    });   
   }
 
 }
