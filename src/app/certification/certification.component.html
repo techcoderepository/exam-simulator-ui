@@ -1,0 +1,40 @@
+        <div class="form-group row text-center">        
+            <div class="col-sm-12">              
+        <h2>Certification  form</h2>
+        </div>
+        </div>
+        
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <div class="col-sm-6  text-right">
+        <label class="control-label" for="certificationCode">Certification Code:</label>
+        </div>
+        <div class="col-sm-6 text-left">
+          <input type="text" class="form-control"  required [(ngModel)]="certification.certificationCode" id="certificationCode" placeholder="Certification Code" name="certificationCode">
+        </div>
+      </div>
+            
+      <div class="form-group row">          
+        <div class="col-sm-6 text-right">
+        <label class="control-label" for="certificationTitle">Certification Title:</label>
+        </div>
+        <div class="col-sm-6 text-left">
+          <input type="text" class="form-control"  required [(ngModel)]="certification.certificationTitle" id="certificationTitle" placeholder="Certification Title" name="certificationTitle">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6 text-right">
+        <label class="control-label" for="certificationByCompany">Certification Company:</label>
+        </div>
+        <div class="col-sm-6 text-left">
+          <input type="text" class="form-control"  required [(ngModel)]="certification.certificationByCompany" id="certificationByCompany" placeholder="Certification Company" name="certificationByCompany">
+        </div>
+      </div>
+      
+      <div class="form-group row text-center">        
+        <div class="col-sm-12">
+           <button type="submit" class="btn btn-success">Submit</button>            
+        </div>
+      </div>
+    </form>        

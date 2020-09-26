@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
 import { TakeexamComponent } from './takeexam/takeexam.component';
+import { CertificationComponent } from './certification/certification.component';
 
 const routes: Routes = [  
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'updateUser/:userId', component: UpdateUserComponent },
   { path: 'addMultipleChoiceQuestion', component: MultipleChoiceQuestionComponent },  
   { path: 'scheduledexamslist', component: ScheduledexamslistComponent },  
+  { path: 'addcertification', component: CertificationComponent },  
   { path: 'takeexam', component: TakeexamComponent },  
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   

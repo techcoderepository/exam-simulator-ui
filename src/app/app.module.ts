@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
 import { TakeexamComponent } from './takeexam/takeexam.component';
+import { CertificationComponent } from './certification/certification.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { TakeexamComponent } from './takeexam/takeexam.component';
     SigninComponent,
     SignupComponent,
     HomeComponent,    
-    ScheduledexamslistComponent, TakeexamComponent,       
+    ScheduledexamslistComponent, TakeexamComponent, CertificationComponent,       
     ],
   imports: [
     BrowserModule,
