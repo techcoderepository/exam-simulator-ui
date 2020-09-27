@@ -18,8 +18,10 @@ export class SigninComponent implements OnInit {
     this.userService.validateUser(this.user.emailId).subscribe(data => {      
       console.log(data);     
       if(data =="success") {
-        sessionStorage.setItem("userEmailId", this.user.emailId);                
-        sessionStorage.setItem("userFullName", this.user.fullName);
+        //sessionStorage.setItem("userEmailId", this.user.emailId);                
+        //sessionStorage.setItem("userFullName", this.user.fullName);                
+        localStorage.setItem("userFullName", this.user.fullName);
+        localStorage.setItem("userEmailId", this.user.emailId);
         this.router.navigate(['/scheduledexamslist']);
         } else {
           this.router.navigate(['/signin']);

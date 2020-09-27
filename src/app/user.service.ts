@@ -6,20 +6,20 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {  
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUsers(): Observable<any> {    
+  getAllUsers(): Observable<any> {
     return this.http.get('http://localhost:8085/getAllUsers');
   }
 
-  getUserById(userId:String): Observable<any> {    
-    return this.http.get('http://localhost:8085/getUserById/'+userId);
+  getUserById(userId: String): Observable<any> {
+    return this.http.get('http://localhost:8085/getUserById/' + userId);
   }
 
-  deleteUser(userId:String):  Observable<any>{    
-    return this.http.delete('http://localhost:8085/deleteUser/'+userId, { responseType: 'text' });
+  deleteUser(userId: String): Observable<any> {
+    return this.http.delete('http://localhost:8085/deleteUser/' + userId, { responseType: 'text' });
   }
 
   createUser(user: Object): Observable<Object> {
@@ -27,17 +27,33 @@ export class UserService {
   }
 
   updateUser(userId: String, value: any): Observable<Object> {
-    return this.http.put('http://localhost:8085/updateUser/'+userId, value);
+    return this.http.put('http://localhost:8085/updateUser/' + userId, value);
   }
-  validateUser(emailId:String): Observable<Object> {
-    return this.http.get('http://localhost:8085/validateUser/'+emailId, { responseType: 'text' });
+  validateUser(emailId: String): Observable<Object> {
+    return this.http.get('http://localhost:8085/validateUser/' + emailId, { responseType: 'text' });
   }
 
-  checkUserSession(router:Router){      
-  if(sessionStorage.getItem("userEmailId") == null){             
-    router.navigate(['/signin']);
+  checkUserSession(router: Router) {
+    //if(sessionStorage.getItem("userEmailId") == null){             
+    if (localStorage.getItem("userEmailId") == null) {
+      router.navigate(['/signin']);
+    }
   }
-}
-  
- 
+
+  onSignOut(router: Router) {
+    //sessionStorage.removeItem("userEmailId");
+    localStorage.removeItem("userEmailId");
+    router.navigate(['/home']);
+  }
+
+  isLoggedIn(router: Router) {    
+    //if(sessionStorage.getItem("userEmailId") == null){             
+    if (localStorage.getItem("userEmailId") == null) {      
+      return false;
+    } else{      
+      return true;
+    }
+  }
+
+
 }

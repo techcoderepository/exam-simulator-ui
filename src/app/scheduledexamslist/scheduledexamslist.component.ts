@@ -9,10 +9,15 @@ import { UserService } from '../user.service';
   styleUrls: ['./scheduledexamslist.component.css']
 })
 export class ScheduledexamslistComponent implements OnInit {
-   constructor(private userService: UserService, private router: Router) { }
+  userFullName:string;
+  userEmailId:string;  
+  
+  constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.userService.checkUserSession(this.router);     
+  ngOnInit(): void {    
+    this.userService.checkUserSession(this.router);    
+    this.userFullName = localStorage.getItem("userFullName");
+    this.userEmailId = localStorage.getItem("userEmailId");    
   }
 
 }
