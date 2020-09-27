@@ -14,11 +14,11 @@ export class AppComponent implements OnInit{
   constructor(private userService: UserService, private router:Router){}
   
   ngOnInit(): void {    
-    this.userFullName = localStorage.getItem("userFullName");
-    this.userEmailId = localStorage.getItem("userEmailId");
   }
 
   isLoggedIn():boolean { 
+    this.userFullName = localStorage.getItem("userFullName");
+    this.userEmailId = localStorage.getItem("userEmailId");
     this.isLoggedInVar =this.userService.isLoggedIn(this.router);    
     return this.isLoggedInVar;
   }

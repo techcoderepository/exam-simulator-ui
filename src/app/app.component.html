@@ -24,6 +24,9 @@
           <a routerLink="/signup" class="btn btn-primary nav-link" routerLinkActive="active">Sign Up</a>
         </li>
         <li *ngIf="isLoggedInVar">
+          <button class="btn btn-primary nav-link" type="submit">Logged in as {{userFullName}}</button>
+        </li>
+        <li *ngIf="isLoggedInVar">          
           <button (click)="onSignOut()" class="btn btn-primary nav-link" type="submit">Sign Out</button>
         </li>
       </ul>

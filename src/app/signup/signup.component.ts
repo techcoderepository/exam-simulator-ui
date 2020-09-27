@@ -15,9 +15,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {        
-    this.userService.createUser(this.user).subscribe(data => {                  
-      //sessionStorage.setItem("userEmailId", this.user.emailId);
-      //sessionStorage.setItem("userFullName", this.user.fullName);
+    this.userService.createUser(this.user).subscribe(data => {                        
       localStorage.setItem("userEmailId", this.user.emailId);
       localStorage.setItem("userFullName", this.user.fullName);
       this.router.navigate(['/scheduledexamslist']);

@@ -33,21 +33,19 @@ export class UserService {
     return this.http.get('http://localhost:8085/validateUser/' + emailId, { responseType: 'text' });
   }
 
-  checkUserSession(router: Router) {
-    //if(sessionStorage.getItem("userEmailId") == null){             
+  checkUserSession(router: Router) {               
     if (localStorage.getItem("userEmailId") == null) {
       router.navigate(['/signin']);
     }
   }
 
-  onSignOut(router: Router) {
-    //sessionStorage.removeItem("userEmailId");
+  onSignOut(router: Router) {    
     localStorage.removeItem("userEmailId");
+    localStorage.removeItem("userFullName");
     router.navigate(['/home']);
   }
 
-  isLoggedIn(router: Router) {    
-    //if(sessionStorage.getItem("userEmailId") == null){             
+  isLoggedIn(router: Router) {                  
     if (localStorage.getItem("userEmailId") == null) {      
       return false;
     } else{      

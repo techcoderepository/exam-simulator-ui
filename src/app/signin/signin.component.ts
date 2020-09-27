@@ -15,12 +15,9 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {        
-    this.userService.validateUser(this.user.emailId).subscribe(data => {      
-      console.log(data);     
-      if(data =="success") {
-        //sessionStorage.setItem("userEmailId", this.user.emailId);                
-        //sessionStorage.setItem("userFullName", this.user.fullName);                
-        localStorage.setItem("userFullName", this.user.fullName);
+    this.userService.validateUser(this.user.emailId).subscribe(data => {               
+      if(data !="Invalid User") {              
+        localStorage.setItem("userFullName", data.toString());
         localStorage.setItem("userEmailId", this.user.emailId);
         this.router.navigate(['/scheduledexamslist']);
         } else {
