@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { strict } from 'assert';
 import { Certification } from '../certification';
 import { CertificationService } from '../certification.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-certification',
@@ -10,8 +12,10 @@ import { CertificationService } from '../certification.service';
 })
 export class CertificationComponent implements OnInit {
   certification: Certification = new Certification();
-  constructor(private certificationService: CertificationService,   private router: Router) { }  
+  constructor(private userService: UserService, private certificationService: CertificationService,   private router: Router) { }  
+  
   ngOnInit(): void {
+    this.userService.checkUserSession(this.router);     
   }
 
   onSubmit() {        

@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
 import { TakeexamComponent } from './takeexam/takeexam.component';
 import { CertificationComponent } from './certification/certification.component';
+import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
 
 const routes: Routes = [  
   { path: 'home', component: HomeComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'addMultipleChoiceQuestion', component: MultipleChoiceQuestionComponent },  
   { path: 'scheduledexamslist', component: ScheduledexamslistComponent },  
   { path: 'addcertification', component: CertificationComponent },  
-  { path: 'takeexam', component: TakeexamComponent },  
+  { path: 'takeexam', component: TakeexamComponent },
+  { path: 'scheduleexamdetail', component: ScheduleexamdetailComponent },    
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];

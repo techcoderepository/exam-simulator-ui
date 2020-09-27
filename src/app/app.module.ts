@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
 import { TakeexamComponent } from './takeexam/takeexam.component';
 import { CertificationComponent } from './certification/certification.component';
+import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { CertificationComponent } from './certification/certification.component'
     SigninComponent,
     SignupComponent,
     HomeComponent,    
-    ScheduledexamslistComponent, TakeexamComponent, CertificationComponent,       
+    ScheduledexamslistComponent, TakeexamComponent, CertificationComponent, ScheduleexamdetailComponent,       
     ],
   imports: [
     BrowserModule,
