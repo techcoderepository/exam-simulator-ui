@@ -34,4 +34,8 @@ export class ScheduleexamdetailComponent implements OnInit {
       }); */
   }
 
+  onCancel(){    
+    this.router.navigate(['/scheduledexamslist']);
+  }
+
 }

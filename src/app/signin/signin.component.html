@@ -41,8 +41,7 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <div class="col-sm-1">
-      <!-- <button type="submit" class="btn btn-secondary">Cancel</button>      -->
-      <a routerLink="/home" class="btn btn-secondary">Cancel</a>
+      <button (click)="onCancel()" type="submit" class="btn btn-secondary">Cancel</button>         
     </div>
     <div class="col-sm-5">
       Don't have an account? <a routerLink="/signup" class="nav-link" routerLinkActive="active">Sign Up</a>

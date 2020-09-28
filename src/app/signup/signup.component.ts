@@ -26,4 +26,8 @@ export class SignupComponent implements OnInit {
     });   
   }
 
+  onCancel(){    
+    this.router.navigate(['/home']);
+  }
+
 }

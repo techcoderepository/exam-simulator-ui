@@ -33,6 +33,16 @@
     </div>
   </div>
 </nav>
+<div class="container-fluid text-left" *ngIf="isLoggedInVar">    
+  <div class="content">
+    <div class="col-sm-2 sidenav">        
+      <p> <a routerLink="/addcertification" class="btn btn-primary nav-link " routerLinkActive="active">Add Certification</a>   </p>
+      <p> <a routerLink="/scheduleexamdetail" class="btn btn-primary nav-link " routerLinkActive="active">Schedule Exam</a>   </p>        
+      <p> <a routerLink="/takeexam" class="btn btn-primary nav-link " routerLinkActive="active">Take Exam</a>   </p>
+      <p> <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Practice Exam</a>   </p>        
+    </div>         
+  </div>
+</div>
 <div class="container">
   <div class="card">
     <div class="card-body">
@@ -40,6 +50,7 @@
     </div>
   </div>
 </div>
+
 <footer class="container-fluid text-center">
   <p>© 2020 Bhuwneshwar Kumar. All rights reserved.</p>
 </footer>

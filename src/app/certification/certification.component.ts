@@ -30,4 +30,8 @@ export class CertificationComponent implements OnInit {
     });   
   }
 
+  onCancel(){    
+    this.router.navigate(['/scheduledexamslist']);
+  }
+
 }
