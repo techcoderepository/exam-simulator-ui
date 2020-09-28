@@ -1,6 +1,6 @@
 <div class="form-group row text-center">
     <div class="col-sm-12">
-        <h2>Schedule your exam</h2>
+        <h2>Schedule Your Exam</h2>
     </div>
 </div>
 <form (ngSubmit)="onSubmit()">
@@ -9,15 +9,33 @@
             <label for="certification">Select Your Certification:</label>
         </div>
         <div class="col-sm-6 text-left">
-            <select>
-                <option>Select Certification</option>
-                <option *ngFor="let certification of certificationList | async">{{certification.certificationCode}} (
+            <select class="form-control" required [(ngModel)]="examSchedule.certificationId" name="certificationId">
+                <option value="">Select Certification</option>
+                <option value="{{certification.certificationTitle}}" *ngFor="let certification of certificationList | async">{{certification.certificationCode}} (
                     {{certification.certificationTitle}} )</option>
             </select>
         </div>
     </div>
 
-    <div class="form-group row text-center">
+    <div class="form-group row">
+        <div class="col-sm-6 text-right form-group required control-label">            
+            <label for="examdate">Exam Date:</label>
+        </div>
+        <div class="col-sm-6 text-left">
+            <input type="date" class="form-control" required [(ngModel)]="examSchedule.examDate" name="examDate">
+        </div>
+    </div>    
+
+    <div class="form-group row">
+        <div class="col-sm-6 text-right form-group required control-label">            
+            <label for="examtime">Exam Time:</label>
+        </div>
+        <div class="col-sm-6 text-left">            
+            <input type="time" class="form-control" required [(ngModel)]="examSchedule.examTime" name="examTime">
+        </div>
+    </div> 
+
+        <div class="form-group row text-center">
         <div class="col-sm-5"></div>
         <div class="col-sm-1">
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -27,5 +45,5 @@
         </div>
         <div class="col-sm-5">
         </div>
-    </div>
+    </div>    
 </form>

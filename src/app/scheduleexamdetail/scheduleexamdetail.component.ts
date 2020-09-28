@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Certification } from '../certification';
 import { CertificationService } from '../certification.service';
+import { Examschedule } from '../examschedule';
 import { UserService } from '../user.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { UserService } from '../user.service';
 })
 export class ScheduleexamdetailComponent implements OnInit {
   certification: Certification = new Certification();
+  examSchedule: Examschedule = new  Examschedule();
   certificationList: Observable<Certification[]>;
 
   constructor(private userService: UserService, private certificationService: CertificationService, private router: Router) { }
@@ -23,6 +25,10 @@ export class ScheduleexamdetailComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("dsdsdsd"+localStorage.getItem("userEmailId"));
+    console.log("dsdsdsd"+this.examSchedule.certificationId);
+
+
     /* this.certificationService.addCertification(this.certification).subscribe(data => {
       console.log(data);
       this.certification = new Certification();
