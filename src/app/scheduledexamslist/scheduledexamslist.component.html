@@ -1,2 +1,5 @@
 
-        <h1>List of scheduled exams</h1>                
+        <h1>List of scheduled exams</h1> 
+        
+        <p *ngFor="let scheduledExam of scheduledExamList | async">{{scheduledExam.userEmailId}} (
+                {{scheduledExam.examDate}})</p>

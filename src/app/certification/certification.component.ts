@@ -19,8 +19,7 @@ export class CertificationComponent implements OnInit {
   }
 
   onSubmit() {        
-    this.certificationService.addCertification(this.certification).subscribe(data => {      
-      console.log(data);
+    this.certificationService.addCertification(this.certification).subscribe(data => {            
       this.certification = new Certification();
       this.router.navigate(['/scheduledexamslist']);
     }, 

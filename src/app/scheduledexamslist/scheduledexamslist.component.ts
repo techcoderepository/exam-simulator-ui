@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Examschedule } from '../examschedule';
+import { ExamscheduleService } from '../examschedule.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,10 +12,13 @@ import { UserService } from '../user.service';
   styleUrls: ['./scheduledexamslist.component.css']
 })
 export class ScheduledexamslistComponent implements OnInit {   
+  examSchedule: Examschedule = new  Examschedule();
+  scheduledExamList: Observable<Examschedule[]>;
   
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private examscheduleService:ExamscheduleService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {    
-    this.userService.checkUserSession(this.router);            
+    this.userService.checkUserSession(this.router); 
+    this.scheduledExamList = this.examscheduleService.getScheduledExamList();           
   }
 }
