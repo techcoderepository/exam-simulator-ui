@@ -9,7 +9,7 @@
             <label for="certification">Select Your Certification:</label>
         </div>
         <div class="col-sm-6 text-left">
-            <select class="form-control" required [(ngModel)]="examSchedule.certificationId" name="certificationId">
+            <select class="form-control" required [(ngModel)]="examSchedule.certification.certificationId" name="certificationId">
                 <option value="">Select Certification</option>
                 <option value="{{certification.certificationId}}" *ngFor="let certification of certificationList | async">{{certification.certificationCode}} (
                     {{certification.certificationTitle}})</option>

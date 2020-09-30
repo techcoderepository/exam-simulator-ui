@@ -1,5 +1,26 @@
 
         <h1>List of scheduled exams</h1> 
-        
-        <p *ngFor="let scheduledExam of scheduledExamList | async">{{scheduledExam.userEmailId}} (
-                {{scheduledExam.examDate}})</p>
+        <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>                    
+                    <th scope="col">Certification Code</th>
+                    <th scope="col">Certification Title</th> 
+                    <th scope="col">Exam Date</th>
+                    <th scope="col">ExamTime</th>  
+                    <th scope="col">Action</th>                    
+                  </tr>
+                </thead>
+                <tbody *ngFor="let scheduledExam of scheduledExamList | async">
+                  <tr>    
+                    <td>{{scheduledExam.certification.certificationCode}}</td>
+                    <td>{{scheduledExam.certification.certificationTitle}}</td>                
+                    <td>{{scheduledExam.examDate}}</td>
+                    <td>{{scheduledExam.examTime}}</td>  
+                    <td>
+                      <button (click)="onReschedule()" class="btn btn-primary nav-link" type="submit">Reschedule</button>
+                      <button (click)="onCancel()" class="btn btn-primary nav-link" type="submit">Cancel</button>
+                    
+                    </td>                    
+                  </tr>
+                </tbody>
+              </table>         

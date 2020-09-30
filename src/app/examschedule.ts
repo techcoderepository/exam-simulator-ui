@@ -1,8 +1,10 @@
 import { Time } from '@angular/common';
+import { Certification } from './certification';
+import { Users } from './Users';
 
 export class Examschedule {
-    userEmailId:String
-    certificationId:Number ;
+    certification:Certification;
     examDate:Date ;	
-    examTime:Time ;	    
+    examTime:Time ;	 
+    user: Users;   
 }
