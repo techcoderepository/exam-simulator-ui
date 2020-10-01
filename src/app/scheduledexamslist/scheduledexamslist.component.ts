@@ -29,4 +29,7 @@ export class ScheduledexamslistComponent implements OnInit {
     console.log("Cancel");
     this.router.navigate(['/scheduledexamslist']);
   }
+  onTakeExam(): void {
+    this.router.navigate(['/takeexam']);
+  }
 }
