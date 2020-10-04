@@ -28,7 +28,7 @@ export class ScheduleexamdetailComponent implements OnInit {
     this.certificationList = this.certificationService.getCertifications();                  
   }
 
-  onSubmit() {
+  onSubmit() {    
     this.examSchedule.user=this.user;
     this.examSchedule.user.emailId=localStorage.getItem("userEmailId");
     this.examscheduleService.saveExamSchedule(this.examSchedule).subscribe(data => {           

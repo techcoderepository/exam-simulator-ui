@@ -2,10 +2,10 @@
   <div class="container-fluid">    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
+        <li>
+          <a routerLink="/home" class="btn btn-primary nav-link" routerLinkActive="active">Home</a>
         </li>  
-        <li *ngIf="isLoggedInVar">
+        <li *ngIf="isLoggedIn()">
         <a routerLink="/addcertification" class="btn btn-primary nav-link " routerLinkActive="active">Add Certification</a>        
       </li>
       <li *ngIf="isLoggedInVar">
@@ -14,9 +14,12 @@
       <li *ngIf="isLoggedInVar">
         <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Practice Exam</a>        
       </li>
+      <li *ngIf="isLoggedInVar">
+        <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Add Questions</a>        
+      </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!isLoggedIn()">
+        <li *ngIf="!isLoggedInVar">
           <a routerLink="/signin" class="btn btn-primary nav-link" routerLinkActive="active">Sign In</a>
         </li>
         <li *ngIf="!isLoggedInVar">

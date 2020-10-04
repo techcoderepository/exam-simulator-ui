@@ -14,6 +14,7 @@ import { UserService } from '../user.service';
 export class ScheduledexamslistComponent implements OnInit {   
   examSchedule: Examschedule = new  Examschedule();
   scheduledExamList: Observable<Examschedule[]>;
+  successss:Observable<String[]>;;
   
   constructor(private examscheduleService:ExamscheduleService, private userService: UserService, private router: Router) { }
 
@@ -21,14 +22,21 @@ export class ScheduledexamslistComponent implements OnInit {
     this.userService.checkUserSession(this.router); 
     this.scheduledExamList = this.examscheduleService.getScheduledExamListByEmailId(localStorage.getItem("userEmailId"));           
   }
-  onReschedule(): void {
-    console.log("reschedule");
+  onReschedule(): void {    
     this.router.navigate(['/scheduleexamdetail']);
   }
-  onCancel(): void {
-    console.log("Cancel");
-    this.router.navigate(['/scheduledexamslist']);
+  onCancelExam(examScheduleId:string):void {    
+      if(confirm("Are you sure to delete?")) {
+        this.examscheduleService.deleteByExamScheduleId(examScheduleId).subscribe(data => {           
+          this.router.navigate(['/scheduledexamslist']);
+          },
+            error => {       
+              this.router.navigate(['/scheduleexamdetail']);
+            }); 
+    this.router.navigate(['/takeexam']);    
+    }              
   }
+
   onTakeExam(): void {
     this.router.navigate(['/takeexam']);
   }
