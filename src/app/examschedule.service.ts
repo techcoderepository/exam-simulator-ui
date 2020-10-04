@@ -13,10 +13,6 @@ export class ExamscheduleService {
     return this.http.post('http://localhost:8085/saveExamSchedule', examschedule);
   }
 
-  getScheduledExamList(): Observable<any> {
-    return this.http.get('http://localhost:8085/getScheduledExamList');
-  }
-
   getScheduledExamListByEmailId(userEmailId:String): Observable<any> {    
     return this.http.get('http://localhost:8085/getScheduledExamListByEmailId/'+userEmailId);      
   }

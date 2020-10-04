@@ -1,40 +1,4 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">    
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li>
-          <a routerLink="/home" class="btn btn-primary nav-link" routerLinkActive="active">Home</a>
-        </li>  
-        <li *ngIf="isLoggedIn()">
-        <a routerLink="/addcertification" class="btn btn-primary nav-link " routerLinkActive="active">Add Certification</a>        
-      </li>
-      <li *ngIf="isLoggedInVar">
-        <a routerLink="/scheduleexamdetail" class="btn btn-primary nav-link " routerLinkActive="active">Schedule Exam</a>        
-      </li>
-      <li *ngIf="isLoggedInVar">
-        <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Practice Exam</a>        
-      </li>
-      <li *ngIf="isLoggedInVar">
-        <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Add Questions</a>        
-      </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!isLoggedInVar">
-          <a routerLink="/signin" class="btn btn-primary nav-link" routerLinkActive="active">Sign In</a>
-        </li>
-        <li *ngIf="!isLoggedInVar">
-          <a routerLink="/signup" class="btn btn-primary nav-link" routerLinkActive="active">Sign Up</a>
-        </li>
-        <li *ngIf="isLoggedInVar">
-          <button class="btn btn-primary nav-link" type="submit">Logged in as {{userFullName}}</button>
-        </li>
-        <li *ngIf="isLoggedInVar">          
-          <button (click)="onSignOut()" class="btn btn-primary nav-link" type="submit">Sign Out</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<app-header></app-header>
 <div class="container">
   <div class="card">
     <div class="card-body">
@@ -42,11 +6,4 @@
     </div>
   </div>
 </div>
-
-<footer class="container-fluid text-center">
-  <ul class="nav navbar-nav">    
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <p>© 2020 Bhuwneshwar Kumar. All rights reserved.</p>
-</footer>
+<app-footer></app-footer>

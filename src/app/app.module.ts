@@ -15,6 +15,8 @@ import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexams
 import { TakeexamComponent } from './takeexam/takeexam.component';
 import { CertificationComponent } from './certification/certification.component';
 import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamde
     SigninComponent,
     SignupComponent,
     HomeComponent,    
-    ScheduledexamslistComponent, TakeexamComponent, CertificationComponent, ScheduleexamdetailComponent,       
+    ScheduledexamslistComponent, TakeexamComponent, CertificationComponent, ScheduleexamdetailComponent, FooterComponent, HeaderComponent,       
     ],
   imports: [
     BrowserModule,

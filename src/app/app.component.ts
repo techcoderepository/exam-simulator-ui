@@ -7,23 +7,7 @@ import { UserService } from './user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  userFullName:string;
-  userEmailId:string;  
-  isLoggedInVar:boolean
-  constructor(private userService: UserService, private router:Router){}
-  
+export class AppComponent implements OnInit{  
   ngOnInit(): void {    
-  }
-
-  isLoggedIn():boolean { 
-    this.userFullName = localStorage.getItem("userFullName");
-    this.userEmailId = localStorage.getItem("userEmailId");
-    this.isLoggedInVar =this.userService.isLoggedIn(this.router);    
-    return this.isLoggedInVar;
-  }
-  
-  onSignOut(){    
-    this.userService.onSignOut(this.router);
-  }
+  } 
 }
