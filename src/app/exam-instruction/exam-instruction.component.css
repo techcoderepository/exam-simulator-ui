@@ -1,0 +1,9 @@
+.main{
+    margin: 0.5%;
+    border: 1px solid blue;
+    padding:0.9%;
+    background:#bcd6e6;
+}
+.text-white{
+    color: black;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Question } from '../question';
-import { QuestionService } from '../question.service';
+import { Question } from '../model/question';
+import { QuestionService } from '../services/question.service';
 
 @Component({
   selector: 'app-multiple-choice-question',

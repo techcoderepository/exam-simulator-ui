@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<h3 class="text-primary display-5">Online quiz: Java</h3>
+<div class="row">
+  <div class="col-sm">
+    <h5>Question {{qn}} of 10</h5>
+  </div>
+  
+  <div class="col-sm mx-4">
+    <h5>Time Remaining: {{minute}}:{{second}}</h5>
+  </div>
+</div>
+<div class="card examContent bg-info text-white">
+<div class="card-body">
+  <h4 class="card-title"><span >Q{{qn}}. </span><span>{{qns}}</span></h4>
+
+    <div class="optionDiv p-1" *ngFor="let option of options" (click)="onOptClick($event)">
+    <input class="input mr-2" (click)="onOptClick($event)" type={{optionType}} name="option1" value="{{option}}" [checked]="option === defaultChoice" (Change)="onItemChange($event.target.value)" [ngClass]="{selected:true}">{{option}}
+    <br>
+    </div>
+</div>
+</div>
+    <div class="row my-4">
+      <div class="col-lg m-auto">
+        <button type="button" class="btn btn-success m-1" (click)="onPrevClick($event)" *ngIf="this.isButtonVisible">Prev.</button>
+        <button type="button" class="btn btn-success m-1" (click)="onNextClick($event)" disabled="{{btnDisabledNext}}">{{isNext}}</button>
+        
+      </div>
+    
+    </div>
+</div>

@@ -12,11 +12,12 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexamslist.component';
-import { TakeexamComponent } from './takeexam/takeexam.component';
 import { CertificationComponent } from './certification/certification.component';
 import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ExamContentComponent } from './exam-content/exam-content.component';
+import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { HeaderComponent } from './header/header.component';
     SigninComponent,
     SignupComponent,
     HomeComponent,    
-    ScheduledexamslistComponent, TakeexamComponent, CertificationComponent, ScheduleexamdetailComponent, FooterComponent, HeaderComponent,       
+    ScheduledexamslistComponent, 
+    CertificationComponent, 
+    ScheduleexamdetailComponent,
+     FooterComponent, 
+     HeaderComponent, 
+     ExamContentComponent,
+     ExamInstructionComponent,            
     ],
   imports: [
     BrowserModule,

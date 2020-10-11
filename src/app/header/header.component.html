@@ -3,36 +3,36 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li>
-            <a routerLink="/home" class="btn btn-primary nav-link" routerLinkActive="active">Home</a>
+            <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
           </li>  
           <li>
-            <a routerLink="/home" class="btn btn-primary nav-link" routerLinkActive="active">Blogs</a>
+            <a routerLink="/home" class="nav-link" routerLinkActive="active">Blogs</a>
           </li>
           <li *ngIf="isLoggedIn()">
-          <a routerLink="/addcertification" class="btn btn-primary nav-link " routerLinkActive="active">Add Certification</a>        
+          <a routerLink="/addcertification" class="nav-link " routerLinkActive="active">Add Certification</a>        
         </li>
         <li *ngIf="isLoggedInVar">
-          <a routerLink="/scheduleexamdetail" class="btn btn-primary nav-link " routerLinkActive="active">Schedule Exam</a>        
+          <a routerLink="/scheduleexamdetail" class="nav-link " routerLinkActive="active">Schedule Exam</a>        
         </li>
         <li *ngIf="isLoggedInVar">
-          <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Practice Exam</a>        
+          <a routerLink="/home" class="nav-link " routerLinkActive="active">Practice Exam</a>        
         </li>
         <li *ngIf="isLoggedInVar">
-          <a routerLink="/home" class="btn btn-primary nav-link " routerLinkActive="active">Add Questions</a>        
+          <a routerLink="/addMultipleChoiceQuestion" class="nav-link " routerLinkActive="active">Add Multiple Choice Questions</a>        
         </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li *ngIf="!isLoggedInVar">
-            <a routerLink="/signin" class="btn btn-primary nav-link" routerLinkActive="active">Sign In</a>
+            <a routerLink="/signin" class="nav-link" routerLinkActive="active">Sign In</a>
           </li>
           <li *ngIf="!isLoggedInVar">
-            <a routerLink="/signup" class="btn btn-primary nav-link" routerLinkActive="active">Sign Up</a>
+            <a routerLink="/signup" class="nav-link" routerLinkActive="active">Sign Up</a>
           </li>
           <li *ngIf="isLoggedInVar">
-            <button class="btn btn-primary nav-link" type="button">Logged in as {{userFullName}}</button>
+            <a class="nav-link" routerLinkActive="active">Logged in as {{userFullName}}</a>
           </li>
           <li *ngIf="isLoggedInVar">          
-            <button (click)="onSignOut()" class="btn btn-primary nav-link" type="button">Sign Out</button>
+            <a (click)="onSignOut()" class="nav-link" routerLinkActive="active">Sign Out</a>
           </li>
         </ul>
       </div>

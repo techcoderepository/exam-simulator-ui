@@ -17,7 +17,8 @@ export class ExamscheduleService {
     return this.http.get('http://localhost:8085/getScheduledExamListByEmailId/'+userEmailId);      
   }
 
-  deleteByExamScheduleId(examScheduleId:string): Observable<Object>{      
+  deleteByExamScheduleId(examScheduleId:string): Observable<Object>{
+    console.log("insideleteByExamScheduleId");      
    return this.http.delete('http://localhost:8085/deleteByExamScheduleId/'+examScheduleId);   
   }  
 }
