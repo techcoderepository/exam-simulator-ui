@@ -1,9 +1,9 @@
-<div class="panel panel-primary">
-<div class="panel-heading text-center">
+<div class="card">
+<div class="panel-heading bg-primary text-center">
   Add Certification
 </div>
 <form (ngSubmit)="onSubmit()">
-<div class="panel-body"> 
+<div class="card-body"> 
   <div class="form-group row">
     <div class="col-sm-4">
       <label class="control-label" for="certificationCode">Certification Code:</label>
@@ -36,7 +36,7 @@
     </div>
   </div>  
 </div>
-<div class="panel-footer text-center">  
+<div class="card-footer bg-light text-center">  
   <button type="submit" class="btn btn-primary">Submit</button>
   <button (click)="onCancel()" type="button" class="btn btn-secondary">Cancel</button>              
 </div>

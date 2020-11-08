@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ExamContentComponent } from './exam-content/exam-content.component';
 import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
+import { StartExamComponent } from './start-exam/start-exam.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +36,14 @@ import { ExamInstructionComponent } from './exam-instruction/exam-instruction.co
      FooterComponent, 
      HeaderComponent, 
      ExamContentComponent,
-     ExamInstructionComponent,            
+     ExamInstructionComponent,
+     StartExamComponent,            
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

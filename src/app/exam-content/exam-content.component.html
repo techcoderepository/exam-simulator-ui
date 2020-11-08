@@ -12,7 +12,6 @@
 <div class="card examContent bg-info text-white">
 <div class="card-body">
   <h4 class="card-title"><span >Q{{qn}}. </span><span>{{qns}}</span></h4>
-
     <div class="optionDiv p-1" *ngFor="let option of options" (click)="onOptClick($event)">
     <input class="input mr-2" (click)="onOptClick($event)" type={{optionType}} name="option1" value="{{option}}" [checked]="option === defaultChoice" (Change)="onItemChange($event.target.value)" [ngClass]="{selected:true}">{{option}}
     <br>

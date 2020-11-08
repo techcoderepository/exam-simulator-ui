@@ -1,8 +1,14 @@
-import { Answer } from './answer';
-
 export class Question {
     questionId:BigInteger;
-    isMultipleChoice:Boolean;
+    answerType:String;
     question:String;
-    answer:Answer[];
+    answer:Array<Answer>;    
 }
+
+export class Answer {
+    answerId:BigInteger;	
+	answer:String;	
+	correct:Boolean;	
+	question:BigInteger;
+}
+

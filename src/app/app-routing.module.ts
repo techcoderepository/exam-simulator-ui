@@ -12,6 +12,7 @@ import { CertificationComponent } from './certification/certification.component'
 import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
 import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
 import { ExamContentComponent } from './exam-content/exam-content.component';
+import { StartExamComponent } from './start-exam/start-exam.component';
 
 const routes: Routes = [  
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'scheduleexamdetail', component: ScheduleexamdetailComponent },    
   { path: 'takeexam', component: ExamInstructionComponent },    
   { path: 'starttest', component: ExamContentComponent },    
+  { path: 'startexam', component: StartExamComponent }, 
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];

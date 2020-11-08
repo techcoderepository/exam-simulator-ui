@@ -1,11 +1,36 @@
-<div class="conatainer-fluid ml-4">
-    <h2>Question Form</h2>
-    <form (ngSubmit)="onSubmit()">
+<fieldset>
+  <legend>Add Multiple Choice Question </legend>
+<form [formGroup]="multipleChoiceQuestionForm" (ngSubmit)="onSubmit(multipleChoiceQuestionForm)">        
+    <div class="input-group">      
+    <div class="input-group-prepend">
+      <span class="input-group-text">Question</span>
+    </div>      
+      <textarea name="question" formControlName="question"> </textarea>
+    </div>    
+     
+      <div formArrayName="answer">       
       <div class="form-group">
-        <label for="question" class="control-label">Question</label>        
-        <textarea class="form-control" id="question" required [(ngModel)]="question.question" name="question" rows="4"></textarea>
-      </div>        
-      <button class="btn btn-primary" type="submit">Save</button>      
-    </form>
+        <label>Answer:</label>
+        <div *ngFor="let num of multipleChoiceQuestionForm.get('answer')['controls'];let j=index trackBy:track" [formGroupName]="j">
+          <div class="input-group">      
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <input (change)="checkCheckBoxvalue(j)" name="correct" type="radio" formControlName="correct"/>
+              </span>              
+            </div>          
+             <input name="answer" formControlName="answer" />                                   
+          </div>                         
+        </div>
+        <button class="btn btn-primary" type="button" (click)="AddOptions()">+</button> 
+        <button class="btn btn-danger" type="button" (click)="RemoveOptions()">X</button>
+      </div>
     </div>
-    
+
+<div> 
+  <button class="btn btn-primary">Save</button>
+  <button (click)="onCancel()" type="button" class="btn btn-secondary">Cancel</button>
+</div>  
+
+    {{multipleChoiceQuestionForm.value | json }}
+  </form>
+</fieldset>

@@ -18,7 +18,8 @@ export class CertificationComponent implements OnInit {
     this.userService.checkUserSession(this.router);     
   }
 
-  onSubmit() {        
+  onSubmit() {  
+    window.alert("succes");      
     this.certificationService.addCertification(this.certification).subscribe(data => {            
       this.certification = new Certification();
       this.router.navigate(['/scheduledexamslist']);
