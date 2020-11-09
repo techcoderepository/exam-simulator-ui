@@ -1,4 +1,4 @@
 export class AppConfig {
-    public static BASE_URL='https://ed4ecc50e536.ngrok.io';
+    public static BASE_URL='https://9769169550fb.ngrok.io';
 
 }
