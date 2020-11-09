@@ -13,6 +13,7 @@ import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamde
 import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
 import { ExamContentComponent } from './exam-content/exam-content.component';
 import { StartExamComponent } from './start-exam/start-exam.component';
+import { AuthGaurdService } from './security/auth-gaurd.service';
 
 const routes: Routes = [  
   { path: 'home', component: HomeComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'scheduleexamdetail', component: ScheduleexamdetailComponent },    
   { path: 'takeexam', component: ExamInstructionComponent },    
   { path: 'starttest', component: ExamContentComponent },    
-  { path: 'startexam', component: StartExamComponent }, 
+  { path: 'startexam', component: StartExamComponent,canActivate : [AuthGaurdService] },   
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];
