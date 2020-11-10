@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGaurdService } from '../security/auth-gaurd.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,19 +11,19 @@ import { UserService } from '../user.service';
 export class HeaderComponent implements OnInit {
   userFullName:string;
   userEmailId:string;  
-  isLoggedInVar:boolean
-  constructor(private userService: UserService, private router:Router){}
+  isAuthenticatedVar:boolean
+  constructor(private authGaurdService: AuthGaurdService, private router:Router){}
  
   ngOnInit(): void {
   }
-   isLoggedIn():boolean { 
+   isAuthenticated():boolean { 
     this.userFullName = localStorage.getItem("userFullName");
     this.userEmailId = localStorage.getItem("userEmailId");
-    this.isLoggedInVar =this.userService.isLoggedIn(this.router);    
-    return this.isLoggedInVar;
+    this.isAuthenticatedVar =this.authGaurdService.isAuthenticated();    
+    return this.isAuthenticatedVar;
   }
   
   onSignOut(){    
-    this.userService.onSignOut(this.router);
+    this.authGaurdService.onSignOut(this.router);
   }
 }

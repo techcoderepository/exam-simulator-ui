@@ -18,8 +18,7 @@ export class ScheduledexamslistComponent implements OnInit {
   
   constructor(private examscheduleService:ExamscheduleService, private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {    
-    this.userService.checkUserSession(this.router); 
+  ngOnInit(): void {       
     this.scheduledExamList = this.examscheduleService.getScheduledExamListByEmailId(localStorage.getItem("userEmailId"));           
   }
   onReschedule(): void {    

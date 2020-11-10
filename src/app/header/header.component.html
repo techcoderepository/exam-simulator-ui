@@ -6,38 +6,38 @@
     <li class="nav-item">
       <a routerLink="/home" class="nav-link" routerLinkActive="active">Blogs</a>
     </li>
-    <li class="nav-item" *ngIf="isLoggedIn()">
+    <li class="nav-item" *ngIf="isAuthenticated()">
       <a routerLink="/addcertification" class="nav-link " routerLinkActive="active">Add Certification</a>        
     </li>
-    <li class="nav-item" *ngIf="isLoggedInVar">
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
       <a routerLink="/scheduleexamdetail" class="nav-link " routerLinkActive="active">Schedule Exam</a>        
     </li>
-    <li class="nav-item" *ngIf="isLoggedInVar">
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
       <a routerLink="/home" class="nav-link " routerLinkActive="active">Practice Exam</a>        
     </li>
-    <li class="nav-item" *ngIf="isLoggedInVar">
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
       <a routerLink="/scheduledexamslist" class="nav-link " routerLinkActive="active">My Exams</a>        
     </li>
-    <li class="nav-item" *ngIf="isLoggedInVar">
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
       <a routerLink="/startexam" class="nav-link " routerLinkActive="active">Start Exam</a>        
     </li>
     
-    <li class="nav-item" *ngIf="isLoggedInVar">
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
       <a routerLink="/addMultipleChoiceQuestion" class="nav-link " routerLinkActive="active">Add Multiple Choice Questions</a>        
     </li>
 
-    <li class="nav-item" *ngIf="!isLoggedInVar">
+    <li class="nav-item" *ngIf="!isAuthenticatedVar">
       <a routerLink="/signin" class="nav-link" routerLinkActive="active">Sign In</a>
     </li>
 
-    <li class="nav-item" *ngIf="!isLoggedInVar">
+    <li class="nav-item" *ngIf="!isAuthenticatedVar">
       <a routerLink="/signup" class="nav-link" routerLinkActive="active">Sign Up</a>
     </li>
     
-    <li class="nav-item" *ngIf="isLoggedInVar">
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
      <a class="nav-link" routerLinkActive="active">Logged in as {{userFullName}}</a>
     </li>
-    <li class="nav-item" *ngIf="isLoggedInVar">          
+    <li class="nav-item" *ngIf="isAuthenticatedVar">          
             <a (click)="onSignOut()" class="nav-link" routerLinkActive="active">Sign Out</a>
      </li>
     </ul>    

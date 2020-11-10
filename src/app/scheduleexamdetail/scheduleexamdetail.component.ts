@@ -23,8 +23,7 @@ export class ScheduleexamdetailComponent implements OnInit {
   constructor(private examscheduleService:ExamscheduleService, private userService: UserService, private certificationService: CertificationService, private router: Router) { }
 
   ngOnInit(): void { 
-    this.examSchedule.certification=this.certification;   
-    this.userService.checkUserSession(this.router);     
+    this.examSchedule.certification=this.certification;       
     this.certificationList = this.certificationService.getCertifications();                  
   }
 

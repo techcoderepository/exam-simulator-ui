@@ -15,7 +15,7 @@ export class CertificationComponent implements OnInit {
   constructor(private userService: UserService, private certificationService: CertificationService,   private router: Router) { }  
   
   ngOnInit(): void {
-    this.userService.checkUserSession(this.router);     
+    
   }
 
   onSubmit() {  

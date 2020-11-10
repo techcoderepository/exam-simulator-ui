@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { TemplateBindingParseResult } from '@angular/compiler';
 import { AppConfig } from './config/app-config';
 
 @Injectable({
@@ -34,27 +32,6 @@ export class UserService {
   validateUser(emailId: String): Observable<Object> {
   return this.http.get(`${AppConfig.BASE_URL}/validateUser/` + emailId, { responseType: 'text' });
      
-  }
-
-  checkUserSession(router: Router) {               
-    if (localStorage.getItem("userEmailId") == null) {
-      router.navigate(['/signin']);
-    }
-  }
-
-  onSignOut(router: Router) {    
-    localStorage.removeItem("userEmailId");
-    localStorage.removeItem("userFullName");
-    router.navigate(['/home']);
-  }
-
-  isLoggedIn(router: Router) {                  
-    if (localStorage.getItem("userEmailId") == null) {      
-      return false;
-    } else{      
-      return true;
-    }
-  }
-
+  } 
 
 }

@@ -29,15 +29,13 @@ export class StartExamComponent implements OnInit {
   question: Question;
   constructor(private questionService:QuestionService ,private router: Router, private http:HttpClient, private userService: UserService,) { }
 
-  myInit(){         
-  console.log(this.questionList);   
+  myInit(){            
   this.optionType=this.questionList[0].answerType;  
   this.options=this.questionList[0].answer;  
   this.qns=this.questionList[0].question; 
   //this.questionList[0].selection[0] = '';   
 }
-  ngOnInit(): void{
-    this.userService.checkUserSession(this.router);             
+  ngOnInit(): void{    
     this.questionService.getAllQuestions().subscribe(data=>{
     this.questionList=data;              
     this.myInit();
