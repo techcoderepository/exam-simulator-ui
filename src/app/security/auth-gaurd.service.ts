@@ -17,7 +17,7 @@ export class AuthGaurdService implements CanActivate{
     
   }
 
-  public isAuthenticated(): boolean {
+  public isAuthenticated(): boolean {    
       if (localStorage.getItem("userEmailId") != null) {      
         return true;
       } else{      

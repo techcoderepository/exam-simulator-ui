@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Users} from '../Users';
 import {UserService} from '../user.service';
+import { User } from '../User';
 
 
 @Component({
@@ -11,16 +11,15 @@ import {UserService} from '../user.service';
 })
 export class UpdateUserComponent implements OnInit {
   userId:String;
- user:Users;
+  user:User;
   constructor(private route: ActivatedRoute,private router: Router,   private userService: UserService) { }
 
   ngOnInit() {
-    this.user = new Users();
+    this.user = new User();
     this.userId = this.route.snapshot.params['userId'];
     
     this.userService.getUserById(this.userId)
-      .subscribe(data => {
-        console.log(data)
+      .subscribe(data => {        
         this.user = data;
       }, error => console.log(error));
   }
@@ -29,7 +28,7 @@ export class UpdateUserComponent implements OnInit {
     this.userService.updateUser(this.userId, this.user)
       .subscribe(data => {
         console.log(data);
-        this.user = new Users();
+        this.user = new User();
         this.gotoList();
       }, error => console.log(error));
   }

@@ -1,4 +1,3 @@
-import { NgForOf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,7 +6,7 @@ import { CertificationService } from '../certification.service';
 import { Examschedule } from '../examschedule';
 import { ExamscheduleService } from '../examschedule.service';
 import { UserService } from '../user.service';
-import { Users } from '../Users';
+import { User } from '../User';
 
 @Component({
   selector: 'app-scheduleexamdetail',
@@ -17,7 +16,7 @@ import { Users } from '../Users';
 export class ScheduleexamdetailComponent implements OnInit {
   certification: Certification = new Certification();
   examSchedule: Examschedule = new  Examschedule();
-  user:Users = new Users();
+  user:User = new User();
   certificationList: Observable<Certification[]>;
   
   constructor(private examscheduleService:ExamscheduleService, private userService: UserService, private certificationService: CertificationService, private router: Router) { }

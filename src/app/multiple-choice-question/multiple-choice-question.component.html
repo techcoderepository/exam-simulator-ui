@@ -1,7 +1,20 @@
 <fieldset>
   <legend>Add Multiple Choice Question </legend>
 <form [formGroup]="multipleChoiceQuestionForm" (ngSubmit)="onSubmit(multipleChoiceQuestionForm)">        
-    <div class="input-group">      
+  
+  <div class="input-group" formGroupName="certification">      
+    <div class="input-group-prepend">
+      <span class="input-group-text">Select Certification</span>
+    </div>      
+    <select formControlName="certificationId" name="certificationId">
+      <option value="">Select Certification</option>
+      <option value="{{cert.certificationId}}" *ngFor="let cert of certificationList | async">{{cert.certificationCode}} (
+          {{cert.certificationTitle}})</option>
+  </select>
+  </div>     
+  
+  
+  <div class="input-group">      
     <div class="input-group-prepend">
       <span class="input-group-text">Question</span>
     </div>      

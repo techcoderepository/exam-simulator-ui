@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormArray,FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Question } from '../model/question';
+import { Observable } from 'rxjs';
+import { Certification } from '../certification';
+import { CertificationService } from '../certification.service';
 import { QuestionService } from '../services/question.service';
 
 @Component({
@@ -12,12 +14,15 @@ import { QuestionService } from '../services/question.service';
 
 
 export class MultipleChoiceQuestionComponent implements OnInit {
+  //certification:Certification = new Certification(); 
+  certificationList: Observable<Certification[]>;
   multipleChoiceQuestionForm:FormGroup; 
-  controls=[];
+  controls=[];  
 
-  constructor(private router: Router, private questionService:QuestionService) { }
+  constructor(private router: Router, private questionService:QuestionService,private certificationService: CertificationService) { }
 
-ngOnInit(): void {  
+ngOnInit(): void {         
+  this.certificationList = this.certificationService.getCertifications();                  
   this.controls.push(new FormGroup(
     {
      answer:new FormControl('',[Validators.required]),      
@@ -34,16 +39,24 @@ ngOnInit(): void {
 
   this.multipleChoiceQuestionForm= new FormGroup(
      {  
+      certification:new FormGroup({
+        certificationId:new FormControl(),
+        certificationTitle:new FormControl(),
+        certificationByCompany:new FormControl(),
+        certificationCode:new FormControl()
+      }),
       question: new FormControl('',[Validators.required]),
       answerType: new FormControl('radio'),
       answer: new FormArray(this.controls)
+
 })
 }
      track(item:any,index:number){
      return index;
      }
     onSubmit(f)
-    {       
+    {   
+      console.log(f.value)    ;
      this.questionService.addQuestion(f.value).subscribe(data => {            
        this.router.navigate(['/home']);
      }, 
@@ -78,6 +91,7 @@ ngOnInit(): void {
    
     this.multipleChoiceQuestionForm= new FormGroup(
       {  
+      certification:this.multipleChoiceQuestionForm.get('certification'),
        question:this.multipleChoiceQuestionForm.get('question'),
        answerType: this.multipleChoiceQuestionForm.get('answerType'),
        answer: new FormArray(this.controls)
@@ -86,7 +100,9 @@ ngOnInit(): void {
   RemoveOptions(){  
     this.controls.pop();  
     this.multipleChoiceQuestionForm= new FormGroup(
-      {  
+      { 
+      certification:this.multipleChoiceQuestionForm.get('certification'), 
+       certificationId:this.multipleChoiceQuestionForm.get('certificationId'), 
        question:this.multipleChoiceQuestionForm.get('question'),
        answerType: this.multipleChoiceQuestionForm.get('answerType'),
        answer: new FormArray(this.controls)

@@ -1,11 +1,11 @@
 import { Time } from '@angular/common';
 import { Certification } from './certification';
-import { Users } from './Users';
+import { User } from './User';
 
 export class Examschedule {
     examScheduleId:BigInteger;
     certification:Certification;
     examDate:Date ;	
     examTime:Time ;	 
-    user: Users;   
+    user: User;   
 }

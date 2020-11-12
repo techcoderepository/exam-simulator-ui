@@ -1,4 +1,4 @@
-export class Users {
+export class User {
     userId:BigInteger
     fullName:string ;	
     emailId:string ;	

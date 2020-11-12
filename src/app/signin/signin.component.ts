@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { Users } from '../Users';
+import { User} from '../User';
 
 @Component({
   selector: 'app-signin',
@@ -9,25 +9,25 @@ import { Users } from '../Users';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  user: Users = new Users();
+  user:User= new User();
   constructor(private userService: UserService,   private router: Router) { }
   ngOnInit(): void {
   }
 
   onSubmit() {        
     this.userService.validateUser(this.user.emailId).subscribe(data => {               
-      if(data !="Invalid User") {              
-        localStorage.setItem("userFullName", data.toString());
+      if(data != null) {  
+        this.user=data;          
+        localStorage.setItem("userFullName", this.user.fullName);
         localStorage.setItem("userEmailId", this.user.emailId);
         this.router.navigate(['/scheduledexamslist']);
-        } else {
+        } else {          
           this.router.navigate(['/signin']);
         }
     }, 
-    error => {
-      console.log(error);
+    error => {      
       this.router.navigate(['/signin']);
-    });   
+    }); 
   }
 
   onCancel(){    

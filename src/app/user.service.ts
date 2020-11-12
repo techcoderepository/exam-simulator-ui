@@ -22,16 +22,16 @@ export class UserService {
     return this.http.delete(`${AppConfig.BASE_URL}/deleteUser/` + userId, { responseType: 'text' });
   }
 
-  createUser(user: Object): Observable<Object> {
+  createUser(user: Object): Observable<any> {
     return this.http.post(`${AppConfig.BASE_URL}/createUser`, user);
   }
 
   updateUser(userId: String, value: any): Observable<Object> {
     return this.http.put(`${AppConfig.BASE_URL}/updateUser/` + userId, value);
   }
-  validateUser(emailId: String): Observable<Object> {
-  return this.http.get(`${AppConfig.BASE_URL}/validateUser/` + emailId, { responseType: 'text' });
-     
-  } 
+  
+  validateUser(emailId: String): Observable<any> {
+    return this.http.get(`${AppConfig.BASE_URL}/validateUser/` + emailId);     
+    }
 
 }

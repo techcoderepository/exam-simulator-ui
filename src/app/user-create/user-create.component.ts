@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  } from '@angular/router';
 import { UserService } from '../user.service';
-import { Users } from '../Users';
+import { User } from '../User';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Users } from '../Users';
 })
 export class UserCreateComponent implements OnInit {
 
-  user: Users = new Users();
+  user: User = new User();
   submitted = false;
 
   constructor(private userService: UserService,   private router: Router) { }
@@ -21,13 +21,12 @@ export class UserCreateComponent implements OnInit {
 
   newUser(): void {
     this.submitted = false;
-    this.user = new Users();
+    this.user = new User();
   }
 
   save() {
-    this.userService.createUser(this.user).subscribe(data => {
-      console.log(data)
-      this.user = new Users();
+    this.userService.createUser(this.user).subscribe(data => {      
+      this.user = new User();
       this.gotoList();
     }, 
     error => console.log(error));
