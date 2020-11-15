@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class HeaderComponent implements OnInit {
   userFullName:string;
-  userEmailId:string;  
+  emailId:string;  
   isAuthenticatedVar:boolean
   constructor(private authGaurdService: AuthGaurdService, private router:Router){}
  
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   }
    isAuthenticated():boolean { 
     this.userFullName = localStorage.getItem("userFullName");
-    this.userEmailId = localStorage.getItem("userEmailId");
+    this.emailId = localStorage.getItem("emailId");
     this.isAuthenticatedVar =this.authGaurdService.isAuthenticated();    
     return this.isAuthenticatedVar;
   }

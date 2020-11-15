@@ -14,8 +14,8 @@ export class ExamscheduleService {
     return this.http.post(`${AppConfig.BASE_URL}/saveExamSchedule`, examschedule);
   }
 
-  getScheduledExamListByEmailId(userEmailId:String): Observable<any> {    
-    return this.http.get(`${AppConfig.BASE_URL}/getScheduledExamListByEmailId/`+userEmailId);      
+  getScheduledExamListByEmailId(emailId:String): Observable<any> {    
+    return this.http.get(`${AppConfig.BASE_URL}/getScheduledExamListByEmailId/`+emailId);      
   }
 
   deleteByExamScheduleId(examScheduleId:string): Observable<Object>{         

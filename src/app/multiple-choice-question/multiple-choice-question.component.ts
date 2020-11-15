@@ -56,12 +56,10 @@ ngOnInit(): void {
      }
     onSubmit(f)
     {   
-      console.log(f.value)    ;
      this.questionService.addQuestion(f.value).subscribe(data => {            
        this.router.navigate(['/home']);
      }, 
      error => {
-       console.log(error);
        this.router.navigate(['/addMultipleChoiceQuestion']);
      });
 

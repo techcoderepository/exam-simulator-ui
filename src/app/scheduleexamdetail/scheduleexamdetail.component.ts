@@ -28,7 +28,7 @@ export class ScheduleexamdetailComponent implements OnInit {
 
   onSubmit() {    
     this.examSchedule.user=this.user;
-    this.examSchedule.user.emailId=localStorage.getItem("userEmailId");
+    this.examSchedule.user.emailId=localStorage.getItem("emailId");
     this.examscheduleService.saveExamSchedule(this.examSchedule).subscribe(data => {           
     this.router.navigate(['/scheduledexamslist']);
     },

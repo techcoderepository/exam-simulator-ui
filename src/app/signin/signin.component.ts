@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
       if(data != null) {  
         this.user=data;          
         localStorage.setItem("userFullName", this.user.fullName);
-        localStorage.setItem("userEmailId", this.user.emailId);
+        localStorage.setItem("emailId", this.user.emailId);
         this.router.navigate(['/scheduledexamslist']);
         } else {          
           this.router.navigate(['/signin']);

@@ -14,7 +14,7 @@ export class QuestionService {
     return this.http.post(`${AppConfig.BASE_URL}/addQuestion`, question);
   }
 
-  getAllQuestions():Observable<any> {
-    return this.http.get(`${AppConfig.BASE_URL}/getAllQuestions`);
+  getUserQuestionsByUser(emailId:String, certificationId:String):Observable<any> {
+    return this.http.get(`${AppConfig.BASE_URL}/getUserQuestionsByUser?emailId=`+emailId+'&certificationId='+certificationId);
   }
 }

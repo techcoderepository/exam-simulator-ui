@@ -18,7 +18,7 @@ export class AuthGaurdService implements CanActivate{
   }
 
   public isAuthenticated(): boolean {    
-      if (localStorage.getItem("userEmailId") != null) {      
+      if (localStorage.getItem("emailId") != null) {      
         return true;
       } else{      
         return false;
@@ -26,7 +26,7 @@ export class AuthGaurdService implements CanActivate{
   }
 
   onSignOut(router: Router) {    
-    localStorage.removeItem("userEmailId");
+    localStorage.removeItem("emailId");
     localStorage.removeItem("userFullName");
     router.navigate(['/home']);
   }

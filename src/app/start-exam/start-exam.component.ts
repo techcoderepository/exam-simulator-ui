@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { interval, Observable, pipe } from 'rxjs';
-import { async } from 'rxjs/internal/scheduler/async';
+import { interval, pipe } from 'rxjs';
 import { Question } from '../model/question';
 import { QuestionService } from '../services/question.service';
 import { UserService } from '../user.service';
@@ -36,8 +35,9 @@ export class StartExamComponent implements OnInit {
   //this.questionList[0].selection[0] = '';   
 }
   ngOnInit(): void{    
-    this.questionService.getAllQuestions().subscribe(data=>{
-    this.questionList=data;              
+    this.questionService.getUserQuestionsByUser(localStorage.getItem('emailId'), "193").subscribe(data=>{
+    this.questionList=data;      
+    console.log(data);        
     this.myInit();
     });    
     this.startTimer();
