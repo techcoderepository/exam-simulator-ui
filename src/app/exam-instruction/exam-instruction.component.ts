@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-exam-instruction',
@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./exam-instruction.component.css']
 })
 export class ExamInstructionComponent implements OnInit {
-
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private _Activatedroute:ActivatedRoute) { }
+certificationId:String;
   ngOnInit(): void {
+    this.certificationId=this._Activatedroute.snapshot.paramMap.get("certificationId");
   }
 
-  onStartTest(): void {
-    this.router.navigate(['/starttest']);
+  onStartExam(): void {
+    this.router.navigate(['/startexam',this.certificationId]);
   }
 
 }

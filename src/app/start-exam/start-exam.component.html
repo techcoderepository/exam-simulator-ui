@@ -1,7 +1,7 @@
 <div class="container-fluid">    
     <div class="row">
       <div class="col-sm">
-        <h5>Question {{qn}} of 10</h5>
+        <h5>Question {{qn}} of {{ questionList?.length || '0' }}</h5>
       </div>
       
       <div class="col-sm mx-4">
@@ -17,7 +17,7 @@
         type={{optionType}} name="option1" value="{{option}}" 
         [checked]="option === defaultChoice" 
         (Change)="onItemChange($event.target.value)"
-         [ngClass]="{selected:true}">{{option.answer}}
+         [ngClass]="{selected:true}">{{option.answer.answer}}
         <br>
         </div>
     </div>
@@ -31,15 +31,5 @@
         
         </div>
     </div>
-
-    <table>
-    <tbody *ngFor="let question of questionList ">
-      <tr>    
-        <td>{{question.question}}</td>
-        <td *ngFor="let num of question.answer">        
-          {{num.answer}}</td>
-        </tr>
-        </tbody>
-      </table>
 
         

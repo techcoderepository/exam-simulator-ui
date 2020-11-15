@@ -1,9 +1,0 @@
-
-.optionDiv:hover{
-    color: white;
-    border: solid 1px black;
-}
-.input:checked{
-    background-color: aquamarine;
-    color:green;
-}

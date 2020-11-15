@@ -22,7 +22,7 @@
                     <td>
                       <button (click)="onReschedule()" class="btn btn-primary nav-link" >Reschedule</button>
                        <button (click)="onCancelExam(scheduledExam.examScheduleId)" class="btn btn-primary nav-link" type="button">Cancel</button>
-                      <button (click)="onTakeExam()" class="btn btn-primary nav-link" >Take Exam</button>     
+                      <button (click)="onTakeExam(scheduledExam.certification.certificationId)" class="btn btn-primary nav-link" >Take Exam</button>     
                     </td>                    
                   </tr>
                 </tbody> 

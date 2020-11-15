@@ -16,7 +16,6 @@ import { CertificationComponent } from './certification/certification.component'
 import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { ExamContentComponent } from './exam-content/exam-content.component';
 import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
 import { StartExamComponent } from './start-exam/start-exam.component';
 
@@ -35,7 +34,6 @@ import { StartExamComponent } from './start-exam/start-exam.component';
     ScheduleexamdetailComponent,
      FooterComponent, 
      HeaderComponent, 
-     ExamContentComponent,
      ExamInstructionComponent,
      StartExamComponent,            
     ],

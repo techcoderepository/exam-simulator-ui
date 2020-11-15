@@ -11,7 +11,6 @@ import { ScheduledexamslistComponent } from './scheduledexamslist/scheduledexams
 import { CertificationComponent } from './certification/certification.component';
 import { ScheduleexamdetailComponent } from './scheduleexamdetail/scheduleexamdetail.component';
 import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
-import { ExamContentComponent } from './exam-content/exam-content.component';
 import { StartExamComponent } from './start-exam/start-exam.component';
 import { AuthGaurdService } from './security/auth-gaurd.service';
 
@@ -26,9 +25,8 @@ const routes: Routes = [
   { path: 'scheduledexamslist', component: ScheduledexamslistComponent,canActivate : [AuthGaurdService] },  
   { path: 'addcertification', component: CertificationComponent,canActivate : [AuthGaurdService] },    
   { path: 'scheduleexamdetail', component: ScheduleexamdetailComponent,canActivate : [AuthGaurdService] },    
-  { path: 'takeexam', component: ExamInstructionComponent,canActivate : [AuthGaurdService] },    
-  { path: 'starttest', component: ExamContentComponent ,canActivate : [AuthGaurdService] },    
-  { path: 'startexam', component: StartExamComponent,canActivate : [AuthGaurdService] },   
+  { path: 'takeexam/:certificationId', component: ExamInstructionComponent,canActivate : [AuthGaurdService] },    
+  { path: 'startexam/:certificationId', component: StartExamComponent,canActivate : [AuthGaurdService] },   
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { interval, pipe } from 'rxjs';
-import { Question } from '../model/question';
+import { ActivatedRoute, Router } from '@angular/router';
+import { interval } from 'rxjs';
+import { Question, UserQuestionResponse } from '../model/question';
 import { QuestionService } from '../services/question.service';
 import { UserService } from '../user.service';
 
@@ -20,22 +20,22 @@ export class StartExamComponent implements OnInit {
   options=[];
   optionType: String;
   isNext:string = "Skip"    
-  questionList:Array<Question>;
+  questionList:Array<UserQuestionResponse>;
   secondsCounter = interval(1000);
   second: number = 10;
   minute:number = 1;
   defaultChoice = String  
   question: Question;
-  constructor(private questionService:QuestionService ,private router: Router, private http:HttpClient, private userService: UserService,) { }
+  constructor(private questionService:QuestionService ,private router: Router, private http:HttpClient, private userService: UserService,private _Activatedroute:ActivatedRoute) { }
 
   myInit(){            
-  this.optionType=this.questionList[0].answerType;  
-  this.options=this.questionList[0].answer;  
-  this.qns=this.questionList[0].question; 
+  this.optionType=this.questionList[0].question.answerType;  
+  this.options=this.questionList[0].optionResponse;  
+  this.qns=this.questionList[0].question.question; 
   //this.questionList[0].selection[0] = '';   
 }
   ngOnInit(): void{    
-    this.questionService.getUserQuestionsByUser(localStorage.getItem('emailId'), "193").subscribe(data=>{
+    this.questionService.getUserQuestionsByUser(localStorage.getItem('emailId'), this._Activatedroute.snapshot.paramMap.get("certificationId")).subscribe(data=>{
     this.questionList=data;      
     console.log(data);        
     this.myInit();
@@ -49,10 +49,10 @@ export class StartExamComponent implements OnInit {
     }
     if(this.qn <=this.questionList.length-1){
       this.qn+=1;
-      this.qns=this.questionList[this.qn-1].question;
-      this.options=this.questionList[this.qn-1].answer;
+      this.qns=this.questionList[this.qn-1].question.question;
+      this.options=this.questionList[this.qn-1].optionResponse;
       //this.defaultChoice=this.questionList[this.qn-1].selection[0]="";
-      this.optionType=this.questionList[this.qn-1].answerType;
+      this.optionType=this.questionList[this.qn-1].question.answerType;
       this.isButtonVisible = true;
       this.isNext="Skip";
     }else{
@@ -66,10 +66,10 @@ export class StartExamComponent implements OnInit {
     console.log(this.btnDisabledNext);
     if(this.qn >= 2){      
       this.qn-=1;
-      this.qns=this.questionList[this.qn-1].question;
-      this.options=this.questionList[this.qn-1].answer;
+      this.qns=this.questionList[this.qn-1].question.question;
+      this.options=this.questionList[this.qn-1].optionResponse;
       //this.defaultChoice = this.questionList[this.qn-1].selection[0];
-      this.optionType=this.questionList[this.qn-1].answerType;
+      this.optionType=this.questionList[this.qn-1].question.answerType;
     }else{
       if(this.qn == 1){
         this.isButtonVisible =false;        

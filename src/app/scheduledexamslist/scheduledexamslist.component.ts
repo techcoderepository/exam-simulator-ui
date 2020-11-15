@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -14,11 +13,10 @@ import { UserService } from '../user.service';
 export class ScheduledexamslistComponent implements OnInit {   
   examSchedule: Examschedule = new  Examschedule();
   scheduledExamList: Observable<Examschedule[]>;
-  successss:Observable<String[]>;;
-  
+  successss:Observable<String[]>;
   constructor(private examscheduleService:ExamscheduleService, private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {       
+  ngOnInit(): void { 
     this.scheduledExamList = this.examscheduleService.getScheduledExamListByEmailId(localStorage.getItem("emailId"));           
   }
   onReschedule(): void {    
@@ -36,7 +34,7 @@ export class ScheduledexamslistComponent implements OnInit {
     }              
   }
 
-  onTakeExam(): void {
-    this.router.navigate(['/takeexam']);
+  onTakeExam(certificationId:String): void {
+    this.router.navigate(['/takeexam',certificationId]);
   }
 }
