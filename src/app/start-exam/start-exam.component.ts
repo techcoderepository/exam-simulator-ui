@@ -26,6 +26,7 @@ export class StartExamComponent implements OnInit {
   minute:number = 1;
   defaultChoice = String  
   question: Question;
+  userQuestionResponse:UserQuestionResponse;
   constructor(private questionService:QuestionService ,private router: Router, private http:HttpClient, private userService: UserService,private _Activatedroute:ActivatedRoute) { }
 
   myInit(){            
@@ -48,6 +49,11 @@ export class StartExamComponent implements OnInit {
       this.isNext="submit";
     }
     if(this.qn <=this.questionList.length-1){
+      this.userQuestionResponse=this.questionList[this.qn-1];
+      
+      //this.userQuestionResponse.optionResponse
+
+
       this.qn+=1;
       this.qns=this.questionList[this.qn-1].question.question;
       this.options=this.questionList[this.qn-1].optionResponse;
@@ -82,7 +88,8 @@ export class StartExamComponent implements OnInit {
     this.isNext="Next";    
     //this.questionList[this.qn-1].selection[0]=$event.target.value;    
   }
-  onItemChange(value){    
+  onItemChange(value){ 
+    //onItemChange   
  }
   startTimer(){
     this.secondsCounter.subscribe(n =>{

@@ -69,7 +69,7 @@ ngOnInit(): void {
     this.router.navigate(['/home']);   
   }
 
-  checkCheckBoxvalue(event){           
+  checkBoxvalue(event){           
     for (let i = 0; i < this.controls.length; i++) {            
       if(event==i){        
           this.multipleChoiceQuestionForm.value['answer'][i]['correct']="true";          
