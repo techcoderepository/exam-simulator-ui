@@ -16,14 +16,14 @@
                 </thead>
                  <tbody *ngFor="let scheduledExam of scheduledExamList | async">
                   <tr>    
-                    <td><button (click)="onTakeExam(scheduledExam.certification.certificationId)" class="btn btn-primary nav-link" >Take Exam</button></td>
+                    <td><i title="Take Exam" (click)="onTakeExam(scheduledExam.certification.certificationId)" class="fa fa-hourglass-start fa-2x" aria-hidden="true"></i> </td>                    
                     <td>{{scheduledExam.certification.certificationCode}}--{{scheduledExam.examScheduleId}}</td>
                     <td>{{scheduledExam.certification.certificationTitle}}</td>                
                     <td>{{scheduledExam.examDate}}</td>
                     <td>{{scheduledExam.examTime}}</td>  
                     <td>                      
-                      <button title="edit" (click)="onReschedule()" class="fa fa-edit" ></button> &nbsp;
-                       <button  title="delete" (click)="onCancelExam(scheduledExam.examScheduleId)" class="fa fa-trash" type="button"></button>
+                       <i title="edit" (click)="onReschedule()" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> &nbsp;
+                       <i title="delete" (click)="onCancelExam(scheduledExam.examScheduleId)" class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                     </td>                    
                   </tr>
                 </tbody> 

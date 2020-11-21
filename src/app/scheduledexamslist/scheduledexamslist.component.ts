@@ -24,14 +24,14 @@ export class ScheduledexamslistComponent implements OnInit {
   }
   onCancelExam(examScheduleId:string):void {    
       if(confirm("Are you sure to delete?")) {
-         this.examscheduleService.deleteByExamScheduleId(examScheduleId).subscribe(data => {           
-          this.router.navigate(['/scheduledexamslist']);
-          },
-            error => {       
-              this.router.navigate(['/scheduleexamdetail']);
-            });  
-    this.router.navigate(['/takeexam']);    
-    }              
+         this.examscheduleService.deleteByExamScheduleId(examScheduleId).subscribe(data => {
+          this.ngOnInit();
+         },
+         error => {
+          this.router.navigate(['/home']);
+         }
+         );        
+    }           
   }
 
   onTakeExam(certificationId:String): void {

@@ -22,13 +22,8 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['/scheduledexamslist']);
     }, 
     error => {
-      console.log(error);
       this.router.navigate(['/signup']);
     });   
-  }
-
-  onCancel(){    
-    this.router.navigate(['/home']);
   }
 
 }

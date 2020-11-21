@@ -33,7 +33,7 @@ export class StartExamComponent implements OnInit {
   this.optionType=this.questionList[0].question.answerType;  
   this.options=this.questionList[0].optionResponse;  
   this.qns=this.questionList[0].question.question; 
-  //this.questionList[0].selection[0] = '';   
+  this.userQuestionResponse=this.questionList[0]; 
 }
   ngOnInit(): void{    
     this.questionService.getUserQuestionsByUser(localStorage.getItem('emailId'), this._Activatedroute.snapshot.paramMap.get("certificationId")).subscribe(data=>{
@@ -50,17 +50,17 @@ export class StartExamComponent implements OnInit {
     }
     if(this.qn <=this.questionList.length-1){
       this.userQuestionResponse=this.questionList[this.qn-1];
-      
-      //this.userQuestionResponse.optionResponse
-
-
+      console.log("previousq");
+      console.log(this.userQuestionResponse);
       this.qn+=1;
       this.qns=this.questionList[this.qn-1].question.question;
-      this.options=this.questionList[this.qn-1].optionResponse;
-      //this.defaultChoice=this.questionList[this.qn-1].selection[0]="";
+      this.options=this.questionList[this.qn-1].optionResponse;      
       this.optionType=this.questionList[this.qn-1].question.answerType;
       this.isButtonVisible = true;
       this.isNext="Skip";
+      this.userQuestionResponse=this.questionList[this.qn-1];
+      console.log("currentq");
+      console.log(this.userQuestionResponse);
     }else{
       if(this.isNext=="submit"){
         this.onSubmit();
@@ -74,7 +74,6 @@ export class StartExamComponent implements OnInit {
       this.qn-=1;
       this.qns=this.questionList[this.qn-1].question.question;
       this.options=this.questionList[this.qn-1].optionResponse;
-      //this.defaultChoice = this.questionList[this.qn-1].selection[0];
       this.optionType=this.questionList[this.qn-1].question.answerType;
     }else{
       if(this.qn == 1){
@@ -84,9 +83,16 @@ export class StartExamComponent implements OnInit {
     }
     
   }
-  onOptClick($event){
-    this.isNext="Next";    
-    //this.questionList[this.qn-1].selection[0]=$event.target.value;    
+  onOptClick(event){ 
+    this.isNext="Next";
+       for (let i = 0; i < this.options.length; i++) {            
+        if(event==i){        
+            this.userQuestionResponse.optionResponse[i].userResponse=true;
+        }else{
+          this.userQuestionResponse.optionResponse[i].userResponse=false;
+        }
+      } 
+      console.log(this.userQuestionResponse);     
   }
   onItemChange(value){ 
     //onItemChange   
