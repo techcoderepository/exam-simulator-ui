@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 })
 export class StartExamComponent implements OnInit {
   qn: number = 1;
-  isChecked: boolean = false;
+  isChecked: boolean = true;
   btnDisabledNext: boolean;
   isButtonVisible = false;
   qns: String;
@@ -94,9 +94,7 @@ export class StartExamComponent implements OnInit {
       } 
       console.log(this.userQuestionResponse);     
   }
-  onItemChange(value){ 
-    //onItemChange   
- }
+  
   startTimer(){
     this.secondsCounter.subscribe(n =>{
       this.second -=1;      
