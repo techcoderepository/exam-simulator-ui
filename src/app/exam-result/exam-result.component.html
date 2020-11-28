@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div *ngFor="let userQuestionResponse of userQuestionResponseList ;let i=index">
+        <span>{{userQuestionResponse.question.question}}</span>
+
+    <div *ngFor="let optionResponse of userQuestionResponse.optionResponse;let j=index">           
+        <div [ngSwitch]="optionResponse.answer.correct">
+            <div *ngSwitchCase="true" class="correct">&nbsp;&nbsp;&nbsp;{{optionResponse.answer.answer}}</div>             
+            <div *ngSwitchCase="false" class="incorrect"> &nbsp;&nbsp;&nbsp;{{optionResponse.answer.answer}}</div>
+    </div>   
+</div>
+</div>
+</div>

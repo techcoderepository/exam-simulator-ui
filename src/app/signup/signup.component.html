@@ -4,8 +4,8 @@
       <form (ngSubmit)="onSubmit()">
         <h2 class="mt-5 mb-3 text-center">Sign Up Form</h2>
         <div class="form-label-group">
-          <input type="text" class="form-control" required="" [(ngModel)]="user.fullName" id="fullName"
-            placeholder="Full Name" name="fullName" autofocus="">
+          <input type="text" class="form-control" required [(ngModel)]="user.fullName" id="fullName"
+            placeholder="Full Name" name="fullName">
           <label for="fullName">Full Name</label>
         </div>
         <div class="form-label-group">
@@ -20,9 +20,9 @@
         </div>
         <button type="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
         <br>
-        <label>
+        <small>
           Already have an account?  <a routerLink="/signin" routerLinkActive="active">Sign In</a>
-      </label>
+        </small>
       </form>
     </div>
   </div>

@@ -18,6 +18,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ExamInstructionComponent } from './exam-instruction/exam-instruction.component';
 import { StartExamComponent } from './start-exam/start-exam.component';
+import { from } from 'rxjs';
+import { ExamResultComponent } from './exam-result/exam-result.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +37,15 @@ import { StartExamComponent } from './start-exam/start-exam.component';
      FooterComponent, 
      HeaderComponent, 
      ExamInstructionComponent,
-     StartExamComponent,            
+     StartExamComponent,
+     ExamResultComponent,            
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

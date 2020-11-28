@@ -14,9 +14,9 @@
     
         <div class="optionDiv p-1" *ngFor="let option of options ;let j=index">
         <input class="input mr-2" (click)="onOptClick(j)" 
-        type={{optionType}} name="option1" value="{{option}}" 
-        [checked]="option === defaultChoice">{{option.answer.answer}}
-        <br>
+        type={{optionType}} name="option1" value="{{option.userResponse}}" 
+        [checked]="option.userResponse">{{option.answer.answer}}
+        <br>                
         </div>
     </div>
     </div>

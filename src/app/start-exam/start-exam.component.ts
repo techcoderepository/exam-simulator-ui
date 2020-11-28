@@ -12,6 +12,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./start-exam.component.css']
 })
 export class StartExamComponent implements OnInit {
+  flag:boolean = false;
+  userresult: number=0;
   qn: number = 1;
   isChecked: boolean = true;
   btnDisabledNext: boolean;
@@ -19,14 +21,13 @@ export class StartExamComponent implements OnInit {
   qns: String;
   options=[];
   optionType: String;
-  isNext:string = "Skip"    
+  isNext:string;    
   questionList:Array<UserQuestionResponse>;
   secondsCounter = interval(1000);
   second: number = 10;
   minute:number = 1;
-  defaultChoice = String  
   question: Question;
-  userQuestionResponse:UserQuestionResponse;
+  userQuestionResponse:UserQuestionResponse;    
   constructor(private questionService:QuestionService ,private router: Router, private http:HttpClient, private userService: UserService,private _Activatedroute:ActivatedRoute) { }
 
   myInit(){            
@@ -34,42 +35,87 @@ export class StartExamComponent implements OnInit {
   this.options=this.questionList[0].optionResponse;  
   this.qns=this.questionList[0].question.question; 
   this.userQuestionResponse=this.questionList[0]; 
+  this.setNext();
 }
   ngOnInit(): void{    
     this.questionService.getUserQuestionsByUser(localStorage.getItem('emailId'), this._Activatedroute.snapshot.paramMap.get("certificationId")).subscribe(data=>{
-    this.questionList=data;      
-    console.log(data);        
+    this.questionList=data;                 
     this.myInit();
     });    
     this.startTimer();
   }
   
   onNextClick(event){
-    if(this.qn == this.questionList.length ){
-      this.isNext="submit";
-    }
-    if(this.qn <=this.questionList.length-1){
-      this.userQuestionResponse=this.questionList[this.qn-1];
-      console.log("previousq");
-      console.log(this.userQuestionResponse);
-      this.qn+=1;
-      this.qns=this.questionList[this.qn-1].question.question;
-      this.options=this.questionList[this.qn-1].optionResponse;      
-      this.optionType=this.questionList[this.qn-1].question.answerType;
-      this.isButtonVisible = true;
-      this.isNext="Skip";
-      this.userQuestionResponse=this.questionList[this.qn-1];
-      console.log("currentq");
-      console.log(this.userQuestionResponse);
-    }else{
-      if(this.isNext=="submit"){
-        this.onSubmit();
+        
+      this.questionList[this.qn-1]=this.userQuestionResponse;
+      if(this.qn <= this.questionList.length-1){
+        this.userQuestionResponse=this.questionList[this.qn]; 
       }
+      
+      if(this.qn == this.questionList.length-1){
+        this.isNext="Submit";      
+      }else{
+        this.setNext();              
+      }
+
+      for (let i = 0; i < this.questionList[this.qn-1].optionResponse.length; i++){
+        if(this.questionList[this.qn-1].optionResponse[i].userQuestionResponseId==null){
+          this.questionList[this.qn-1].optionResponse[i].userQuestionResponseId=this.questionList[this.qn-1].userQuestionResponseId;
+        }           
     }
-    
+    if(this.qn <= this.questionList.length-1){
+      this.qns=this.questionList[this.qn].question.question;
+      this.options=this.questionList[this.qn].optionResponse;      
+      this.optionType=this.questionList[this.qn].question.answerType;
+    }
+      this.isButtonVisible = true;  
+        
+      ++this.qn;
+      if(this.qn <= this.questionList.length){
+      this.questionService.saveUserQuestionResponse(this.questionList[this.qn-2]).subscribe(data => {            
+        this.router.navigate(['/startexam',this.qn]);
+      }, 
+      error => {
+        this.router.navigate(['/home']);
+      });
+    } else{
+          if(confirm("Are you sure to submit your test?")){
+      this.questionService.saveUserQuestionResponse(this.questionList[this.qn-2]).subscribe(data => {            
+        this.router.navigate(['/examresult']);
+      }, 
+      error => {
+        this.router.navigate(['/home']);
+      });
+    }
+    }
+      
   }
-  onPrevClick(event){
-    console.log(this.btnDisabledNext);
+  
+
+  setNext():void{
+    for (let i = 0; i < this.options.length; i++) {            
+      if(this.userQuestionResponse.optionResponse[i].userResponse==true){        
+        this.isNext="Next" ;
+        break;
+      }else{
+        this.isNext="Skip" ;
+      }
+    }  
+  }
+  onOptClick(event){ 
+    if(this.qn < this.questionList.length ){
+      this.isNext="Next";
+    } 
+       for (let i = 0; i < this.options.length; i++) {            
+        if(event==i){        
+            this.userQuestionResponse.optionResponse[i].userResponse=true;
+        }else{
+          this.userQuestionResponse.optionResponse[i].userResponse=false;
+        }
+      }       
+  }
+  
+  onPrevClick(event){    
     if(this.qn >= 2){      
       this.qn-=1;
       this.qns=this.questionList[this.qn-1].question.question;
@@ -83,18 +129,6 @@ export class StartExamComponent implements OnInit {
     }
     
   }
-  onOptClick(event){ 
-    this.isNext="Next";
-       for (let i = 0; i < this.options.length; i++) {            
-        if(event==i){        
-            this.userQuestionResponse.optionResponse[i].userResponse=true;
-        }else{
-          this.userQuestionResponse.optionResponse[i].userResponse=false;
-        }
-      } 
-      console.log(this.userQuestionResponse);     
-  }
-  
   startTimer(){
     this.secondsCounter.subscribe(n =>{
       this.second -=1;      
@@ -111,7 +145,11 @@ export class StartExamComponent implements OnInit {
       
     }); 
   }
-  onSubmit(){    
+  onSubmit(){   
+    if(confirm("Are you sure to submit?")) {
+
+
+    } 
   }
   getSelection(option){
     //if(this.Question[this.qn-1].selection[0]===option){

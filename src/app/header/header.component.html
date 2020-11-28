@@ -31,8 +31,8 @@
     <li class="nav-item" *ngIf="isAuthenticatedVar">
      <a class="nav-link" routerLinkActive="active">Logged in as {{userFullName}}</a>
     </li>
-    <li class="nav-item" *ngIf="isAuthenticatedVar">          
-            <a title="sign out" (click)="onSignOut()" class="fa fa-sign-out" routerLinkActive="active"></a>
+    <li class="nav-item" *ngIf="isAuthenticatedVar">  
+      <i title="Sign Out" (click)="onSignOut()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>        
      </li>
     </ul>    
   </nav>
