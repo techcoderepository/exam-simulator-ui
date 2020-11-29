@@ -22,7 +22,7 @@
     </div>
         <div class="row my-4">
           <div class="col-lg m-auto">
-            <button type="button" class="btn btn-success m-1" (click)="onPrevClick($event)" *ngIf="this.isButtonVisible">Prev.</button>
+            <button type="button" class="btn btn-success m-1" (click)="onPrevClick($event)" *ngIf="this.isPrevVisible">Prev.</button>
             <button type="button" class="btn btn-success m-1" (click)="onNextClick($event)" disabled="{{btnDisabledNext}}">{{isNext}}</button>
           </div>
         </div>

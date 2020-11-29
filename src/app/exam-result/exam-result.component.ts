@@ -20,13 +20,10 @@ export class ExamResultComponent implements OnInit {
         this.questionService.getExamResult(localStorage.getItem('emailId')).subscribe(data=>{
         this.userQuestionResponseList=data;  
         this.calculateExamScore();                
-        });
-
-          
+        });          
   }
 
-  calculateExamScore(): void{
-    console.log(this.userQuestionResponseList);
+  calculateExamScore(): void{    
     for (let i = 0; i < this.userQuestionResponseList.length; i++){
       this.flag=true;
        for(let j=0; j< this.userQuestionResponseList[i].optionResponse.length; j++){
