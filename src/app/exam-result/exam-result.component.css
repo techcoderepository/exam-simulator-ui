@@ -1,6 +1,29 @@
-.correct{
-    color: green
+.option{
+    padding:10px;
+    margin:5px;
+    border: 2px solid black;
+    font-size: 25px;
 }
 .incorrect{
-    color: red
+    background-color: rgb(238, 55, 55);
+}
+.correct{
+    background-color: rgb(78, 243, 147);
+}
+.correctopt{
+    border: 5px solid rgb(78, 243, 147);
+}
+img{
+    src: url('../../assets/avatar7.png');
+    background: rgb(196, 167, 167);
+}
+.circle{
+    width:150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid rgb(180, 133, 3);
+    margin-left:50px;
+    text-align: center;
+    font-size: 45px;
+    color: green;
 }

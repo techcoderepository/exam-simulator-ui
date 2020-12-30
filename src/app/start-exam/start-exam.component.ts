@@ -94,24 +94,19 @@ export class StartExamComponent implements OnInit {
   }
 
 
-  setNext(): void {
-    console.log(this.userQuestionResponse);
-    console.log("setNext")    ;
+  setNext(): void {        
     for (let i = 0; i < this.options.length; i++) {
-      if (this.userQuestionResponse.optionResponse[i] && this.userQuestionResponse.optionResponse[i].userResponse == true) {
-        console.log("setNext if")    ;
+      if (this.userQuestionResponse.optionResponse[i] && this.userQuestionResponse.optionResponse[i].userResponse == true) {        
         this.isNext = "Next";
         break;
-      } else {
-        console.log("setNext else")    ;
+      } else {        
         this.isNext = "Skip";
       }
     }
   }
   onOptClick(event) {
     if (this.qn < this.questionList.length) {
-      this.isNext = "Next";
-      //this.setNext();
+      this.isNext = "Next";      
     }
     for (let i = 0; i < this.options.length; i++) {
       if (this.userQuestionResponse.optionResponse[i]) {

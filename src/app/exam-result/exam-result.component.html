@@ -1,14 +1,36 @@
-<div class="container-fluid">
-<p>Corerct Answers:-- {{numCorrectAnswer}}</p>
+<!-- User Details-->
+<div class="d-flex justify-content-center align-items-center">
+    
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="./avatar7.png" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+               <h5 class="card-title">{{userQuestionResponseList[0].user.fullName}}</h5>
+              <p class="card-text">{{userQuestionResponseList[0].user.emailId}}</p> 
+              <p class="card-text text-success">Score : {{numCorrectAnswer}}/{{numTotalQuestion}}({{persentageScore}}%)</p>              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="circle d-flex justify-content-center align-items-center">{{numCorrectAnswer}}/{{numTotalQuestion}}</div>
+</div>
 
-    <div *ngFor="let userQuestionResponse of userQuestionResponseList ;let i=index">
-        <span>{{userQuestionResponse.question.question}}</span>
-
-    <div *ngFor="let optionResponse of userQuestionResponse.optionResponse;let j=index">           
-        <div [ngSwitch]="optionResponse.answer.correct">
-            <div *ngSwitchCase="true" class="correct">&nbsp;&nbsp;&nbsp;{{optionResponse.answer.answer}}</div>             
-            <div *ngSwitchCase="false" class="incorrect"> &nbsp;&nbsp;&nbsp;{{optionResponse.answer.answer}}</div>
-    </div>   
-</div>
-</div>
-</div>
+  <!--Result Content-->
+<div class="card">
+    <h4 class="card-header bg-primary text-white">Your Result</h4>
+    <div class="card-body">
+      <div *ngFor="let response of userQuestionResponseList; let i = index">
+        <div class="card mb-1">
+            <h5 class="card-header">Question {{i}}: {{userQuestionResponseList[i].question.question}}</h5>
+            <div class="card-body">
+              <div #optDiv class ="option" [ngClass]="{'correct':checkValue(answer),'incorrect':checkValue1(answer),'correctopt':checkValue2(answer)}"*ngFor="let answer of userQuestionResponseList[i].optionResponse">
+                  {{answer.answer.answer}}
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
