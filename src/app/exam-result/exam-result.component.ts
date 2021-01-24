@@ -12,10 +12,11 @@ import { QuestionService } from '../services/question.service';
 export class ExamResultComponent implements OnInit {  
   numCorrectAnswer:number=0;
   numTotalQuestion:number=0;
-  persentageScore:string;
+  persentageScore:number;
   userQuestionResponseList:Array<UserQuestionResponse>;
 
   flag:Boolean=true;
+  passFail:string="Fail";
 
   constructor(private questionService:QuestionService, private _Activatedroute:ActivatedRoute) { }
   
@@ -23,8 +24,7 @@ export class ExamResultComponent implements OnInit {
    ngOnInit(): void {
         this.questionService.getExamResult(localStorage.getItem('emailId')).subscribe(data=>{
         this.userQuestionResponseList=data;  
-        this.calculateExamScore(); 
-        console.log(this.userQuestionResponseList);               
+        this.calculateExamScore();                       
         });          
   } 
 
@@ -41,8 +41,11 @@ export class ExamResultComponent implements OnInit {
       this.numCorrectAnswer++ ;
     }
   }
-  this.numTotalQuestion= this.userQuestionResponseList.length;  
-  this.persentageScore=(this.numCorrectAnswer*100/this.numTotalQuestion).toFixed(2);  
+  this.numTotalQuestion= this.userQuestionResponseList[0].question.certification.numberOfQuestions;  
+  this.persentageScore= Number((this.numCorrectAnswer*100/this.numTotalQuestion).toFixed(2));  
+  if(this.persentageScore>=this.userQuestionResponseList[0].question.certification.passingScore){
+    this.passFail="Pass";
+  }
 } 
   
   checkValue(answer){

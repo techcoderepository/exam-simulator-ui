@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray,FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Certification } from '../certification';
@@ -7,13 +7,11 @@ import { CertificationService } from '../certification.service';
 import { QuestionService } from '../services/question.service';
 
 @Component({
-  selector: 'app-multiple-choice-question',
-  templateUrl: './multiple-choice-question.component.html',
-  styleUrls: ['./multiple-choice-question.component.css']
+  selector: 'app-multiple-selection-question',
+  templateUrl: './multiple-selection-question.component.html',
+  styleUrls: ['./multiple-selection-question.component.css']
 })
-
-
-export class MultipleChoiceQuestionComponent implements OnInit { 
+export class MultipleSelectionQuestionComponent implements OnInit { 
   certificationList: Observable<Certification[]>;
   multipleChoiceQuestionForm:FormGroup; 
   controls=[];  
@@ -25,14 +23,14 @@ ngOnInit(): void {
   this.controls.push(new FormGroup(
     {
      answer:new FormControl('',[Validators.required]),      
-     correct:new FormControl('',[Validators.required])
+     correct:new FormControl(false,[Validators.required])
     }
  ));
 
  this.controls.push(new FormGroup(
   {
    answer:new FormControl('',[Validators.required]),      
-   correct:new FormControl('',[Validators.required])
+   correct:new FormControl(false,[Validators.required])
   }
 ));
 
@@ -45,7 +43,7 @@ ngOnInit(): void {
         certificationCode:new FormControl()
       }),
       question: new FormControl('',[Validators.required]),
-      answerType: new FormControl('radio'),
+      answerType: new FormControl('checkbox'),
       answer: new FormArray(this.controls)
 
 })
@@ -68,21 +66,11 @@ ngOnInit(): void {
     this.router.navigate(['/home']);   
   }
 
-  checkBoxvalue(event){           
-    for (let i = 0; i < this.controls.length; i++) {            
-      if(event==i){        
-          this.multipleChoiceQuestionForm.value['answer'][i]['correct']="true";          
-      }else{
-        this.multipleChoiceQuestionForm.value['answer'][i]['correct']="false";
-      }
-    }
-  }
-
-  AddOptions(){
+   AddOptions(){
      this.controls.push(new FormGroup(
       {
        answer:new FormControl('',[Validators.required]),      
-       correct:new FormControl('',[Validators.required])
+       correct:new FormControl(false,[Validators.required])
       }
     ));          
    

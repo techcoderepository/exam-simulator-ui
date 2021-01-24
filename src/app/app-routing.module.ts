@@ -14,6 +14,8 @@ import { ExamInstructionComponent } from './exam-instruction/exam-instruction.co
 import { StartExamComponent } from './start-exam/start-exam.component';
 import { AuthGaurdService } from './security/auth-gaurd.service';
 import { ExamResultComponent } from './exam-result/exam-result.component';
+import { MultipleSelectionQuestionComponent } from './multiple-selection-question/multiple-selection-question.component';
+import { BulkQuestionUploaderComponent } from './bulk-question-uploader/bulk-question-uploader.component';
 
 const routes: Routes = [  
   { path: 'home', component: HomeComponent },
@@ -23,12 +25,14 @@ const routes: Routes = [
   { path: 'createUser', component: UserCreateComponent,canActivate : [AuthGaurdService] },
   { path: 'updateUser/:userId', component: UpdateUserComponent,canActivate : [AuthGaurdService] },
   { path: 'addMultipleChoiceQuestion', component: MultipleChoiceQuestionComponent,canActivate : [AuthGaurdService] },  
+  { path: 'addMultipleSelectionQuestion', component: MultipleSelectionQuestionComponent,canActivate : [AuthGaurdService] },  
   { path: 'scheduledexamslist', component: ScheduledexamslistComponent,canActivate : [AuthGaurdService] },  
   { path: 'addcertification', component: CertificationComponent,canActivate : [AuthGaurdService] },    
   { path: 'scheduleexamdetail', component: ScheduleexamdetailComponent,canActivate : [AuthGaurdService] },    
   { path: 'takeexam/:certificationId', component: ExamInstructionComponent,canActivate : [AuthGaurdService] },    
   { path: 'startexam/:certificationId', component: StartExamComponent,canActivate : [AuthGaurdService] },   
   { path: 'examresult', component: ExamResultComponent,canActivate : [AuthGaurdService] },   
+  { path: 'bulkQuestionUploader', component: BulkQuestionUploaderComponent,canActivate : [AuthGaurdService] },   
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },   
 ];

@@ -20,6 +20,14 @@
       <a routerLink="/addMultipleChoiceQuestion" class="nav-link " routerLinkActive="active">Add Multiple Choice Questions</a>        
     </li>
 
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
+      <a routerLink="/addMultipleSelectionQuestion" class="nav-link " routerLinkActive="active">Add Multiple Selection Questions</a>        
+    </li>
+
+    <li class="nav-item" *ngIf="isAuthenticatedVar">
+      <a routerLink="/bulkQuestionUploader" class="nav-link " routerLinkActive="active">Bulk Question Uploader</a>        
+    </li>
+
     <li class="nav-item" *ngIf="!isAuthenticatedVar">
       <a routerLink="/signin" class="nav-link" routerLinkActive="active">Sign In</a>
     </li>

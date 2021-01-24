@@ -3,4 +3,7 @@ export class Certification {
     certificationCode:String;
     certificationTitle:String;
     certificationByCompany:String;
+    numberOfQuestions:number;
+    duration:number;
+    passingScore:number;
 }

@@ -1,0 +1,11 @@
+<input type="file" (change)="onFileUpload($event)" multiple="false">
+<table>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let cell of row">
+        <input type="text" value="{{cell}}">
+        
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -20,6 +20,8 @@ import { ExamInstructionComponent } from './exam-instruction/exam-instruction.co
 import { StartExamComponent } from './start-exam/start-exam.component';
 import { from } from 'rxjs';
 import { ExamResultComponent } from './exam-result/exam-result.component';
+import { MultipleSelectionQuestionComponent } from './multiple-selection-question/multiple-selection-question.component';
+import { BulkQuestionUploaderComponent } from './bulk-question-uploader/bulk-question-uploader.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ExamResultComponent } from './exam-result/exam-result.component';
      HeaderComponent, 
      ExamInstructionComponent,
      StartExamComponent,
-     ExamResultComponent,            
+     ExamResultComponent,
+     MultipleSelectionQuestionComponent,
+     BulkQuestionUploaderComponent,            
     ],
   imports: [
     BrowserModule,

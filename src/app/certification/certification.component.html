@@ -1,44 +1,45 @@
-<div class="card">
-<div class="panel-heading bg-primary text-center">
-  Add Certification
-</div>
-<form (ngSubmit)="onSubmit()">
-<div class="card-body"> 
-  <div class="form-group row">
-    <div class="col-sm-4">
-      <label class="control-label" for="certificationCode">Certification Code:</label>
-    </div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" required [(ngModel)]="certification.certificationCode"
-        id="certificationCode" placeholder="Certification Code" name="certificationCode">
-    </div>
-    <div></div>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-7 mx-auto">
+      <form (ngSubmit)="onSubmit()">
+        <h2 class="mt-5 mb-3 text-center">Add Certification</h2>
+        <div class="form-label-group">
+          <input type="text" class="form-control" required [(ngModel)]="certification.certificationCode"
+            id="certificationCode" placeholder="Certification Code" name="certificationCode">
+        </div>
+        <br>
+        <div class="form-label-group">
+          <input type="text" class="form-control" required [(ngModel)]="certification.certificationTitle"
+            id="certificationTitle" placeholder="Certification Title" name="certificationTitle">
+        </div>
+        <br>
+        <div class="form-label-group">
+          <input type="text" class="form-control" required [(ngModel)]="certification.certificationByCompany"
+            id="certificationByCompany" placeholder="Certification By Company" name="certificationByCompany">
+        </div>
+        <br>
+        <div class="form-label-group">
+          <input type="text" class="form-control" required [(ngModel)]="certification.numberOfQuestions"
+            id="numberOfQuestions" placeholder="Number Of Questions" name="numberOfQuestions">
+        </div>
+        <br>
 
-  <div class="form-group row">
-    <div class="col-sm-4">
-      <label class="control-label" for="certificationTitle">Certification Title:</label>
-    </div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" required [(ngModel)]="certification.certificationTitle"
-        id="certificationTitle" placeholder="Certification Title" name="certificationTitle">
-    </div>
-    <div></div>
-  </div>
+        <div class="form-label-group">
+          <input type="text" class="form-control" required [(ngModel)]="certification.duration"
+            id="duration" placeholder="Duration in Minute" name="duration">
+        </div>
+        <br>
 
-  <div class="form-group row">
-    <div class="col-sm-4">
-      <label class="control-label" for="certificationByCompany">Certification Company:</label>
+        <div class="form-label-group">
+          <input type="text" class="form-control" required [(ngModel)]="certification.passingScore"
+            id="passingScore" placeholder="Passing Score in Percentage" name="passingScore">
+        </div>
+        <br>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp; 
+        <button (click)="onCancel()" type="button" class="btn btn-secondary">Cancel</button>
+      </form>
     </div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" required [(ngModel)]="certification.certificationByCompany"
-        id="certificationByCompany" placeholder="Certification Company" name="certificationByCompany">
-    </div>
-  </div>  
-</div>
-<div class="card-footer bg-light text-center">  
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <button (click)="onCancel()" type="button" class="btn btn-secondary">Cancel</button>              
-</div>
-</form>
+  </div>
 </div>
